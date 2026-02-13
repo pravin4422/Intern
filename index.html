@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> levels page</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+    <div class="mobile-screen">
+      <div class="level-page">
+         <div class="Title">
+             <img src="levelpage/images/assets/title.png" class="title">
+         </div>
+       
+         <div class="level-wrapper level1">
+             <img src="levelpage/images/assets/1.png" class="level" data-level="1">
+         </div>
+
+         <div class="level-wrapper level2 locked">
+             <img src="levelpage/images/assets/2.png" class="level" data-level="2">
+         </div>
+
+          <div class="level-wrapper level3 locked">
+             <img src="levelpage/images/assets/3.png" class="level" data-level="3">
+          </div>
+
+         <div class="level-wrapper level4 locked">
+             <img src="levelpage/images/assets/4.png" class="level" data-level="4">
+          </div>
+
+         <div class="level-wrapper level5 locked">
+             <img src="levelpage/images/assets/5.png" class="level" data-level="5">
+         </div>
+
+         <div class="level-wrapper level6 locked">
+             <img src="levelpage/images/assets/6.png" class="level" data-level="6">
+          </div>
+
+         <div class="level-wrapper level7 locked">
+             <img src="levelpage/images/assets/7.png" class="level" data-level="7">
+         </div>
+
+         <div class="level-wrapper level8 locked">
+             <img src="levelpage/images/assets/8.png" class="level" data-level="8">
+         </div>
+
+         <div class="level-wrapper level9 locked">
+             <img src="levelpage/images/assets/9.png" class="level" data-level="9">
+         </div>
+          <div class="level-wrapper level10 locked">
+             <img src="levelpage/images/assets/10.png" class="level" data-level="10">
+          </div>
+
+        </div>
+    </div>
+
+    <!-- Room 1 Game -->
+    <div class="game-screen hidden" id="room1">
+        <img src="room 1/room final 2@1.5x@1.5x.png" class="bg-image" id="bgImage"/>
+        <img src="room 1/carpet in room 1.png" class="carpet" id="carpet"/>
+        <img src="room 1/key to open the door for room 1.png" class="key hidden" id="key"/>
+
+        <div class="carpet-area" id="carpetArea"></div>
+        <div class="key-area disabled" id="keyArea"></div>
+        <div id="doorArea" class="door-area disabled"></div>
+        
+        <img src="room 1/ICONS/CLOSE@3x.png" id="finalCloseBtn" class="final-close-btn hidden" alt="Close"/>
+        <img src="room 1/final panel 1.png" class="overlay-image hidden" id="overlay"/>
+        
+        <div class="lastoptions" id="lastoptions" style="display: none;">
+            <img src="room 1/ICONS/HOME@3x.png" alt="" class="homebtn" id="lastButtons">
+            <img src="room 1/ICONS/PLAY@3x.png" alt="" class="nextbtn" id="lastButtons">
+        </div> 
+
+        <div class="inventory">
+            <img src="room 1/game inventry@3x.png" class="inventory-bg" />
+            <div class="slot" id="slot1"></div>
+        </div>
+    </div>
+
+    <!-- Room 2 Game -->
+    <div class="game-screen hidden" id="room2">
+        <img src="Room2/images/room2/room 2 background@3x@3x.jpg" class="bg-image" id="bgImage2"/>
+        <img src="Room2/images/room2/button@3x.png" class="button hidden" id="floorButton"/>
+        <img src="Room2/images/room2/game play 1@3x.png" class="leaf" id="leaf"/>
+        <img src="Room2/images/room2/ICONS/CLOSE@3x.png" id="closeButton" class="close-btn hidden" />
+
+        <div class="leaf-area" id="leafArea"></div>
+        <div class="button-area" id="buttonArea"></div>
+        <div id="doorArea2" class="door-area disabled"></div>
+
+        <div class="inventory">
+            <img src="Room2/images/room2/game inventry@3x.png" class="inventory-bg" />
+            <div class="slot" id="slot2"></div>
+        </div>
+
+        <div id="levelCompletePanel" class="level-complete-container hidden">
+            <img src="Room2/images/room2/final panel 12@2x.png" class="panel-bg" />
+            <img src="Room2/images/room2/ICONS/CLOSE@3x.png" id="panelCloseBtn" class="panel-close-btn" />
+            <div class="panel-buttons">
+                <img src="Room2/images/room2/ICONS/HOME@3x.png" id="homeBtn" class="panel-btn" />
+                <img src="Room2/images/room2/ICONS/PLAY@3x.png" id="nextBtn" class="panel-btn" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Room 3 Game -->
+    <div class="game-screen hidden" id="room3">
+        <img src="room 3/room 3/1st bg@3x.jpg" class="bg-image" id="bgImage3"/>
+        <div class="small-box" id="smallBox"></div>
+        <div id="doorlock3" class="door-lockbox"></div>
+
+        <div class="zoomoverlay" id="zoomOverlay">
+            <img src="room 3/room 3/game play bg@3x.jpg" class="blur-bg"/>
+            <img src="room 3/room 3/gameplay 1@3x.png" class="box1" id="box1"/>
+            <img src="room 3/room 3/CLOSE BUTTON.png" class="close-btn" id="closeBtn3"/>
+        </div>
+
+        <div class="inventory">
+            <img src="room 3/room 3/game inventry@3x.png" class="inventory-bg"/>
+            <img src="room 3/room 3/key to open the door for room 1.png" class="key" id="key3" draggable="true"/>
+        </div>
+
+        <div id="finalPanel3" class="success-panel">
+            <img src="room 3/room 3/final panel 3.png" style="width:100%"/>
+            <div class="lastoptions" id="lastoptions3">
+                <img src="room 1/ICONS/HOME@3x.png" class="homebtn" id="homeBtn3">
+                <img src="room 1/ICONS/PLAY@3x.png" class="nextbtn" id="nextBtn3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Room 4 Game -->
+    <div class="game-screen hidden" id="room4">
+        <img src="room 4/room 4/1@3x.png" class="bg-image" id="bgImage4"/>
+        <div class="hitbox" id="hitbox4"></div>
+        <div class="hitbox2" id="hitbox4_2"></div>
+        <div class="hitbox3" id="hitbox4_3"></div>
+
+        <div class="inventory">
+            <img src="room 4/room 4/game inventry@3x.png" class="inventory-bg"/>
+            <img src="room 4/room 4/6@3x.png" class="clue-paper1" id="clueItem4"/>
+            <img src="room 4/room 4/6@3x.png" class="clue-paper2" id="clueItem4_2"/>
+        </div>
+
+        <div class="clue-overlay" id="clue-overlay4">
+            <img src="room 4/room 4/3@3x.png" class="blur-bg"/>
+            <img src="room 4/room 4/clue 2@3x.png" class="large-clue1"/>
+            <img src="room 4/room 4/CLOSE BUTTON.png" class="close-btn" id="closebtn4"/>
+        </div>
+
+        <div class="box-overlay" id="boxoverlay4">
+            <img src="room 4/room 4/3@3x.png" class="blur-bg"/>
+            <img src="room 4/room 4/clue 3@3x@3x.png" class="box1" id="box4_1"/>
+            <div class="keypad-wrapper" id="keypadWrapper4" style="display: none;">
+                <div class="button-grid" id="buttonGrid4"></div>
+            </div>
+            <img src="room 4/room 4/CLOSE BUTTON.png" class="close-btn" id="closebtn4_2"/>
+        </div>
+
+        <div class="clue-overlay2" id="clue-overlay4_2">
+            <img src="room 4/room 4/3@3x.png" class="blur-bg"/>
+            <img src="room 4/room 4/7@3x.png" class="large-clue2"/>
+            <img src="room 4/room 4/CLOSE BUTTON.png" class="close-btn" id="closebtn4_3"/>
+        </div>
+
+        <div class="box-overlay" id="doorOverlay4">
+            <img src="room 4/room 4/3@3x.png" class="blur-bg"/>
+            <img src="room 4/room 4/8@3x.png" class="doorKeypadImg"/>
+            <div class="keypad-wrapper" id="doorKeypadWrapper4">
+                <div class="doorbutton-grid" id="doorButtonGrid4"></div>
+            </div>
+            <img src="room 4/room 4/CLOSE BUTTON.png" class="close-btn" id="closeDoorBtn4"/>
+        </div>
+
+        <div id="finalPanel4" class="success-panel">
+            <img src="room 4/room 4/final panel 4.png" style="width:100%"/>
+            <div class="lastoptions" id="lastoptions4">
+                <img src="room 1/ICONS/HOME@3x.png" id="homeBtn4">
+                <img src="room 1/ICONS/PLAY@3x.png" id="nextBtn4">
+            </div>
+        </div>
+    </div>
+
+    <!-- Room 5 Game -->
+    <div class="game-screen hidden" id="room5">
+        <img id="sceneImage5" src="room 5/1st bg before collecting key.png" class="bg-image"/>
+        <div class="left-pot5" id="leftPot5"></div>
+        <div class="blur-layer5" id="blur5"></div>
+        <div class="click-area5 disabled" id="clickArea5"></div>
+        <div class="key-area5 disabled" id="key5"></div>
+        <div class="key-area5_2 disabled" id="key5_2"></div>
+        <div class="final-key5_2 disabled" id="finalKey5_2"></div>
+        <div class="final-key5" id="finalKey5"></div>
+
+        <img src="room 5/CLOSE BUTTON.png" id="closeBtn5" class="close-btn5 hidden"/>
+        <img src="room 5/final panel 5.png" class="finaloverlay-image5 hidden" id="finalOverlay5"/>
+        <img src="room 5/letter box.png" class="overlay-image5 hidden" id="overlay5">
+        <img src="room 5/ICONS/CLOSE@3x.png" id="finalCloseBtn5" class="final-close-btn5 hidden"/>
+
+        <div class="lastoptions" id="lastoptions5" style="display: none;">
+            <img src="room 5/ICONS/HOME@3x.png" id="homeBtn5">
+            <img src="room 5/ICONS/PLAY@3x.png" id="nextBtn5">
+        </div>
+
+        <div class="inventory">
+            <div class="slot" id="slot5_1">
+                <img src="room 5/key 2.png" id="inventoryKey5" draggable="true" class="inv-key5 hidden">
+                <img src="room 5/key.png" id="inventoryKey5_2" draggable="true" class="inv-key5 hidden">
+            </div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+            <div class="slot"></div>
+        </div>
+    </div>
+
+    <!-- Room 6 Game -->
+    <div class="game-screen hidden" id="room6">
+        <img src="Room 6/bg1.png" class="bg-image" id="mainBg6"/>
+        <img src="Room 6/bg2.png" class="bg-image6_2" id="openDoor6"/>
+        
+        <div class="hitbox6_1" id="hitbox6_1"></div>
+        <div class="hitbox6_2" id="hitbox6_2"></div>
+        <div class="hitbox6_3" id="hitbox6_3"></div>
+        <div class="hitbox6_4" id="hitbox6_4"></div>
+        <div class="hitbox6_5" id="hitbox6_5"></div>
+
+        <img src="Room 6/dollor.png" class="clue6_1" id="clue6_1"/>
+        <img src="Room 6/wall clue.png" class="clue6_2" id="clue6_2"/>
+        <img src="Room 6/colour paper clue.png" class="clue6_3" id="clue6_3"/>
+        <img src="Room 6/lock.png" class="clue6_4" id="clue6_4"/>
+        <img src="Room 6/CLOSE BUTTON.png" class="closebtn6" id="closebtn6"/>
+
+        <div class="keypad-wrapper6" id="keypadWrapper6">
+            <div class="button-grid6" id="buttonGrid6"></div>
+        </div>
+
+        <div class="color-buttons-container6" id="colorButtons6">
+            <img src="Room 6/red button.png" class="color-btn6" id="redBtn6"/>
+            <img src="Room 6/white button.png" class="color-btn6" id="whiteBtn6"/>
+            <img src="Room 6/yellow.png" class="color-btn6" id="yellowBtn6"/>
+        </div>
+
+        <img src="Room 6/final panel 6.png" class="success-panel" id="finalPanel6"/>
+        <div class="lastoptions" id="lastoptions6" style="display: none;">
+            <img src="Room 6/PLAY BUTTON_2.png" class="homebtn" id="homeBtn6"/>
+            <img src="Room 6/SETTING BUTTON_2.png" class="nextbtn" id="nextBtn6"/>
+        </div>
+    </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

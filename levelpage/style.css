@@ -1,0 +1,164 @@
+/* body {
+    margin: 0;
+    background: #000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* mobile frame */
+
+  /* .mobile-screen {
+    width: 360px;
+    height: 640px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  } */
+
+  
+  
+  /* GAME BACKGROUND */
+
+  /* .level-page {
+    width: 100%;
+    height: 100%;
+    background-image: url("images/assets/home page without tittle.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .Title{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15%;
+    left:0;
+    z-index: 10;
+  }
+    
+  .title{
+    width:90%;
+    height: auto;
+  }
+  
+    
+  
+  /* LEVEL BUTTONS */
+/*   
+  .level {
+    width: 350px;
+    height: auto;  
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .level:active {
+    transform: scale(0.9);
+  }
+  
+  
+  .level1  { top: 18%; left: 8%; }
+  .level2  { top: 18%; left:2% }
+
+  .level3  { top: 15%; left: 8%; }
+  .level4  { top: 15%; left: 2%; }
+
+  .level5  { top: 10%; left: 8%; }
+  .level6  { top: 10%; left: 2%; }
+
+  .level7  { top: 5%; left: 8%; }
+  .level8  { top: 5%; left: 2%; }
+
+  .level9  { top: 2%; left: 8%; }
+  .level10 { top: 2%; left: 2%; }
+
+
+  .level-wrapper {
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .locked {
+    opacity: 0.5;
+    pointer-events: none;
+  } */ 
+
+  body{
+
+    margin: 0;
+    display: flex;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+  }
+  .mobile-screen{
+    width: 360px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  }
+  .level-page{
+    width: 100%;
+    height: 100%;
+    background-image: url("images/assets/home page without tittle.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .Title{
+    width: 100%;
+    position: absolute;
+    top: 35px;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+  }
+  .title{
+    width: 150px;
+    height: auto;
+  }
+  .level {
+    width: 70px;
+    height: auto;  
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .level:active {
+    transform: scale(0.9);
+  }
+
+  .level1  { top: 22%; left: 20%; }
+  .level2  { top: 22%; left:60% }
+
+  .level3  { top: 37%; left: 20%; }
+  .level4  { top: 37%; left: 60%; }
+
+  .level5  { top: 52%; left: 20%; }
+  .level6  { top: 52%; left: 60%; }
+
+  .level7  { top: 67%; left: 20%; }
+  .level8  { top: 67%; left: 60%; }
+
+  .level9  { top: 82%; left: 20%; }
+  .level10 { top: 82%; left: 60%; }
+ 
+  .level-wrapper {
+    position: absolute;
+    z-index: 10;
+  }
+  
+  .locked {
+    opacity: 0.5;
+    pointer-events: none;
+  } 

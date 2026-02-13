@@ -1,0 +1,133 @@
+/* body {
+  margin: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-screen {
+  position: relative;
+  width: 360px;          
+  height: 640px;         
+  overflow: hidden;
+}
+
+#sceneImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+.inventory-bg {
+  position: absolute;
+  left:0px;
+  bottom: 0;
+  width: 28%;
+} */
+
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.game-screen {
+  position: relative;
+  width: 360px;
+  height: 640px;
+  overflow: hidden;
+}
+
+.bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.bg-image.blur {
+  filter: blur(6px);
+}
+.inventory-bg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.clue-area {
+  position: absolute;
+  bottom: 185px;    
+  right: 30px;
+  width: 45px;
+  height: 55px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  /* z-index: 2;    */
+  }
+
+.clue-area.disabled {
+  pointer-events: none; 
+  }
+
+.overlay-image {
+    position: absolute;
+    inset: 0;
+    left: 10px;
+    width: 95%;
+    height: 95%;
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: auto;
+  }
+
+.overlay-image.hidden {
+    display: none;
+  }
+
+.close-btn {
+    position: absolute;
+    bottom: 500px;
+    left: 290px;
+    width: 50px;
+    height: 50px;
+    z-index: 200;
+    cursor: pointer;
+  }
+
+.close-btn.hidden {
+    display: none;
+  }
+
+.letter-area {
+    position: absolute;
+    bottom: 355px;    
+    right: 90px;
+    width: 180px;
+    height: 68px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 4;   
+    }
+
+.letter-area.disabled {
+    pointer-events: none; 
+    }
+
+.letter-open-area {
+
+    position: absolute;
+    bottom: 237px;    
+    right: 40px;
+    width: 280px;
+    height:155px;
+    transform: rotate(-30deg);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 3; 
+}    
