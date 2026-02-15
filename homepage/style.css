@@ -1,0 +1,413 @@
+
+body {
+margin: 0;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background: #000;
+}
+
+.game-container {
+position: relative;
+width: 360px;
+height: 640px;
+background: url("doorgame/home\ page\ without\ tittle.jpg") no-repeat center/cover;
+
+border-radius: 25px;
+overflow: hidden;
+}
+
+/* SETTINGS ICON */
+.settings-icon {
+position: absolute;
+top: -180px;
+right: -120px;
+width: 320px;
+height: 500px;
+cursor: pointer;
+/* background: rgba(255, 255, 255, 0.7); */
+padding: 6px;
+border-radius: 50%;
+}
+
+.settings-icon:hover {
+/* transform: rotate(90deg); */
+transition: 0.3s;
+}
+
+/* Title example */
+.title {
+text-align: center;
+margin-top: 80px;
+color: #00d9ff;
+}
+
+    
+    
+    
+    body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+   Main container 
+
+
+  .game-container {
+    width: 370px;
+    height: 690px;
+    background-image: url("doorgame/home\ page\ without\ tittle.jpg"); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+  }
+  
+  Title 
+
+
+  .title {
+    color: #00c3ff;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 42px;
+    text-shadow: 2px 2px #0066aa;
+  }
+  
+  Menu buttons
+  
+  
+  .menu-btn {
+    width: 220px;
+    padding: 16px;
+    margin: 15px 0;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background: #f0ad48;
+    box-shadow: 0 6px #d18c2c;
+    cursor: pointer;
+  }
+  
+
+
+  Bottom buttons
+
+
+  .bottom-buttons {
+
+    position: absolute;
+    
+    bottom: 100px;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .small-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: none;
+    background: #6adf37;
+    color: white;
+    cursor: pointer;
+  }
+  
+ level1 
+
+
+body {
+    margin: 0;
+    background: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #door {
+    width: 90%;
+    max-width: 900px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  #door:hover {
+    transform: scale(1.02);
+  }
+
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+  }
+  
+  /* GAME CONTAINER */
+  .game-container {
+    
+    width: 370px;
+    height: 690px;
+    background-image: url("doorgame/home\ page\ without\ tittle.jpg"); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+  }
+  
+  /* SETTINGS ICON */
+  .settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 26px;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+  }
+  
+  /* TITLE */
+  .title {
+    color: #00c9ff;
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #0077aa;
+  }
+  
+  /* MAIN BUTTONS */
+  .menu-btn {
+    width: 220px;
+    padding: 16px;
+    margin: 15px 0;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    /* background: #f7b24a;
+    box-shadow: 0 6px #d18c2c; */
+    cursor: pointer;
+  }
+  
+  /* BOTTOM BUTTONS */
+  .bottom-buttons {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .small-btn {
+    padding: 8px 16px;
+    background: #6adf37;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* SETTINGS POPUP */
+  .settings-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .settings-box {
+    width: 260px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .settings-box h2 {
+    margin-bottom: 15px;
+  }
+  
+  .settings-box label {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+  }
+  
+  .close-btn {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background: #ff6b6b;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+
+
+
+
+  
+  
+
+
+
+   .image-container {
+    position: relative;     
+    width: 500px;
+    
+
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bg-img {
+    width: 90%;
+  }
+  
+  .top-img {
+    position: absolute;      /* Place on top */
+    top: 580px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 240px;
+  }
+  
+
+
+  .game-container {
+    width: 370px;
+    height: 690px;
+    background-image: url("doorgame/home\ page\ without\ tittle.jpg"); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+
+    
+  }
+  
+  /* SETTINGS ICON */
+  .settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 26px;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+  }
+  
+  /* TITLE */
+  .title {
+    color: #00c9ff;
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #0077aa;
+  }
+  
+  /* MAIN BUTTONS */
+  .menu-btn {
+    width: 220px;
+    padding: 16px;
+    margin: 15px 0;
+    font-size: 20px;
+    border-radius: 20px;
+    border: none;
+    background: #f7b24a;
+    box-shadow: 0 6px #d18c2c;
+    cursor: pointer;
+  }
+  
+  /* BOTTOM BUTTONS */
+  .bottom-buttons {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .small-btn {
+    padding: 8px 16px;
+    background: #6adf37;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* SETTINGS POPUP */
+  .settings-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .settings-box {
+    width: 260px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .settings-box h2 {
+    margin-bottom: 15px;
+  }
+  
+  .settings-box label {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+  }
+  
+  .close-btn {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background: #ff6b6b;
+    color: #fff;
+    cursor: pointer;
+  }

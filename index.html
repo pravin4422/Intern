@@ -8,8 +8,44 @@
   
 </head>
 <body>
-    <div class="mobile-screen">
+    <!-- Homepage -->
+    <div class="homepage-screen">
+      <div class="game-container">
+        <img src="homepage/doorgame/SETTING BUTTON.png" class="settings-icon" id="settingsBtn" />
+        <img src="homepage/doorgame/100 door tittle.png" height="220px" width="220px">
+        <div class="container">
+          <center>
+            <div class="menu">
+              <button class="menu-btn" id="playBtn">PLAY</button>
+              <button class="menu-btn" id="levelsBtn">LEVELS</button>
+              <button class="menu-btn" id="gamesBtn">MOREGAME</button>
+            </div>
+          </center>
+        </div>
+      </div>
+
+      <!-- Settings Popup -->
+      <div class="settings-popup" id="settings">
+        <div class="settings-box">
+          <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsBtn" />
+          <h2>Settings</h2>
+          <div class="setting-item">
+            <span>🔊 Sound</span>
+            <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggle" data-active="true" />
+          </div>
+          <div class="setting-item">
+            <span>🎵 Music</span>
+            <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggle" data-active="true" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Level Selection -->
+    <div class="mobile-screen hidden">
       <div class="level-page">
+         <img src="homepage/panneldesign/home button.png" class="home-btn-level" id="homeBtnLevel" />
+         <img src="homepage/panneldesign/next button.png" class="next-btn-level" id="nextBtnLevel" />
          <div class="Title">
              <img src="levelpage/images/assets/title.png" class="title">
          </div>
@@ -66,17 +102,40 @@
         <div class="key-area disabled" id="keyArea"></div>
         <div id="doorArea" class="door-area disabled"></div>
         
-        <img src="room 1/ICONS/CLOSE@3x.png" id="finalCloseBtn" class="final-close-btn hidden" alt="Close"/>
-        <img src="room 1/final panel 1.png" class="overlay-image hidden" id="overlay"/>
-        
-        <div class="lastoptions" id="lastoptions" style="display: none;">
-            <img src="room 1/ICONS/HOME@3x.png" alt="" class="homebtn" id="lastButtons">
-            <img src="room 1/ICONS/PLAY@3x.png" alt="" class="nextbtn" id="lastButtons">
-        </div> 
+        <div class="game-controls">
+            <img src="room 1/ICONS/HOME@3x.png" class="control-btn homebtn-game">
+            <img src="room 1/ICONS/pause@3x.png" class="control-btn pausebtn-game">
+            <img src="room 1/ICONS/PLAY@3x.png" class="control-btn playbtn-game hidden">
+        </div>
 
         <div class="inventory">
             <img src="room 1/game inventry@3x.png" class="inventory-bg" />
             <div class="slot" id="slot1"></div>
+        </div>
+
+        <div id="levelCompletePanel1" class="level-complete-container hidden">
+            <img src="room 1/final panel 1.png" class="panel-bg" />
+            <img src="room 1/ICONS/CLOSE@3x.png" id="panelCloseBtn1" class="panel-close-btn" />
+            <div class="panel-buttons">
+                <img src="room 1/ICONS/HOME@3x.png" id="homeBtn1" class="panel-btn" />
+                <img src="room 1/ICONS/SETTING@3x.png" id="settingBtn1" class="panel-btn" />
+                <img src="room 1/ICONS/PLAY@3x.png" id="nextBtn1" class="panel-btn" />
+            </div>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom1">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom1" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom1" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom1" data-active="true" />
+                </div>
+            </div>
         </div>
     </div>
 
@@ -101,7 +160,23 @@
             <img src="Room2/images/room2/ICONS/CLOSE@3x.png" id="panelCloseBtn" class="panel-close-btn" />
             <div class="panel-buttons">
                 <img src="Room2/images/room2/ICONS/HOME@3x.png" id="homeBtn" class="panel-btn" />
+                <img src="Room2/images/room2/ICONS/SETTING@3x.png" id="settingBtn2" class="panel-btn" />
                 <img src="Room2/images/room2/ICONS/PLAY@3x.png" id="nextBtn" class="panel-btn" />
+            </div>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom2">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom2" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom2" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom2" data-active="true" />
+                </div>
             </div>
         </div>
     </div>
@@ -125,9 +200,26 @@
 
         <div id="finalPanel3" class="success-panel">
             <img src="room 3/room 3/final panel 3.png" style="width:100%"/>
+            <img src="room 3/room 3/CLOSE BUTTON.png" id="panelCloseBtn3" class="panel-close-btn3" />
             <div class="lastoptions" id="lastoptions3">
                 <img src="room 1/ICONS/HOME@3x.png" class="homebtn" id="homeBtn3">
+                <img src="room 1/ICONS/SETTING@3x.png" class="settingbtn" id="settingBtn3">
                 <img src="room 1/ICONS/PLAY@3x.png" class="nextbtn" id="nextBtn3">
+            </div>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom3">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom3" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom3" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom3" data-active="true" />
+                </div>
             </div>
         </div>
     </div>
@@ -177,9 +269,26 @@
 
         <div id="finalPanel4" class="success-panel">
             <img src="room 4/room 4/final panel 4.png" style="width:100%"/>
+            <img src="room 4/room 4/CLOSE BUTTON.png" id="panelCloseBtn4" class="panel-close-btn4" />
             <div class="lastoptions" id="lastoptions4">
                 <img src="room 1/ICONS/HOME@3x.png" id="homeBtn4">
+                <img src="room 1/ICONS/SETTING@3x.png" id="settingBtn4">
                 <img src="room 1/ICONS/PLAY@3x.png" id="nextBtn4">
+            </div>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom4">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom4" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom4" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom4" data-active="true" />
+                </div>
             </div>
         </div>
     </div>
@@ -193,7 +302,7 @@
         <div class="key-area5 disabled" id="key5"></div>
         <div class="key-area5_2 disabled" id="key5_2"></div>
         <div class="final-key5_2 disabled" id="finalKey5_2"></div>
-        <div class="final-key5" id="finalKey5"></div>
+        <div class="final-key5 disabled" id="finalKey5"></div>
 
         <img src="room 5/CLOSE BUTTON.png" id="closeBtn5" class="close-btn5 hidden"/>
         <img src="room 5/final panel 5.png" class="finaloverlay-image5 hidden" id="finalOverlay5"/>
@@ -202,7 +311,23 @@
 
         <div class="lastoptions" id="lastoptions5" style="display: none;">
             <img src="room 5/ICONS/HOME@3x.png" id="homeBtn5">
+            <img src="room 5/ICONS/SETTING@3x.png" id="settingBtn5">
             <img src="room 5/ICONS/PLAY@3x.png" id="nextBtn5">
+        </div>
+
+        <div class="settings-popup" id="settingsRoom5">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom5" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom5" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom5" data-active="true" />
+                </div>
+            </div>
         </div>
 
         <div class="inventory">
@@ -220,6 +345,7 @@
     <div class="game-screen hidden" id="room6">
         <img src="Room 6/bg1.png" class="bg-image" id="mainBg6"/>
         <img src="Room 6/bg2.png" class="bg-image6_2" id="openDoor6"/>
+        <img src="Room 6/game inventry@3x.png" class="inventory-bg6" id="inventry6"/>
         
         <div class="hitbox6_1" id="hitbox6_1"></div>
         <div class="hitbox6_2" id="hitbox6_2"></div>
@@ -227,8 +353,8 @@
         <div class="hitbox6_4" id="hitbox6_4"></div>
         <div class="hitbox6_5" id="hitbox6_5"></div>
 
-        <img src="Room 6/dollor.png" class="clue6_1" id="clue6_1"/>
-        <img src="Room 6/wall clue.png" class="clue6_2" id="clue6_2"/>
+        <img src="Room 6/wall clue.png" class="clue6_1" id="clue6_1"/>
+        <img src="Room 6/dollor.png" class="clue6_2" id="clue6_2"/>
         <img src="Room 6/colour paper clue.png" class="clue6_3" id="clue6_3"/>
         <img src="Room 6/lock.png" class="clue6_4" id="clue6_4"/>
         <img src="Room 6/CLOSE BUTTON.png" class="closebtn6" id="closebtn6"/>
@@ -239,14 +365,199 @@
 
         <div class="color-buttons-container6" id="colorButtons6">
             <img src="Room 6/red button.png" class="color-btn6" id="redBtn6"/>
-            <img src="Room 6/white button.png" class="color-btn6" id="whiteBtn6"/>
             <img src="Room 6/yellow.png" class="color-btn6" id="yellowBtn6"/>
+            <img src="Room 6/white button.png" class="color-btn6" id="whiteBtn6"/>
         </div>
 
         <img src="Room 6/final panel 6.png" class="success-panel" id="finalPanel6"/>
+        <img src="Room 6/CLOSE BUTTON.png" id="panelCloseBtn6" class="panel-close-btn6" />
         <div class="lastoptions" id="lastoptions6" style="display: none;">
-            <img src="Room 6/PLAY BUTTON_2.png" class="homebtn" id="homeBtn6"/>
-            <img src="Room 6/SETTING BUTTON_2.png" class="nextbtn" id="nextBtn6"/>
+            <img src="room 1/ICONS/HOME@3x.png" class="homebtn" id="homeBtn6"/>
+            <img src="room 1/ICONS/SETTING@3x.png" class="settingbtn" id="settingBtn6"/>
+            <img src="room 1/ICONS/PLAY@3x.png" class="nextbtn" id="nextBtn6"/>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom6">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom6" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom6" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom6" data-active="true" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room 7 Game -->
+    <div class="game-screen hidden" id="room7">
+        <img id="sceneImage7" src="room 7/1 bg.jpg" class="bg-image"/>
+        <div class="crowbar7" id="crowBar7"></div>
+        <div class="key-area7" id="key7"></div>
+        <div class="locked-box7" id="lockedBox7"></div>
+        <img src="room 7/wooden box.png" class="overlay-image7 hidden" id="overlay7"/>
+        <img src="room 7/CLOSE BUTTON.png" id="closeBtn7" class="close-btn7 hidden"/>
+        <div class="final-crowbar-area7 disabled" id="finalCrowBarArea7"></div>
+        <div class="locked-box-area7 disabled" id="lockedBoxArea7"></div>
+        <div class="locked-box-key-area7 disabled" id="lockedBoxKeyArea7"></div>
+        <div class="final-key-area7 disabled" id="finalKeyArea7"></div>
+        <div class="final-door-area7 disabled" id="finalDoorArea7"></div>
+        <img src="room 7/final panel 7- 15/final panel 7@2x.png" class="finaloverlay-image7 hidden" id="finalOverlay7"/>
+        <img src="room 7/ICONS/CLOSE@3x.png" id="finalCloseBtn7" class="final-close-btn7 hidden"/>
+
+        <div class="lastoptions" id="lastoptions7" style="display: none;">
+            <img src="room 7/ICONS/HOME@3x.png" id="homeBtn7"/>
+            <img src="room 7/ICONS/SETTING@3x.png" id="settingBtn7"/>
+            <img src="room 7/ICONS/PLAY@3x.png" id="nextBtn7"/>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom7">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom7" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom7" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom7" data-active="true" />
+                </div>
+            </div>
+        </div>
+
+        <div class="inventory">
+            <img src="room 7/game inventry@3x.png" class="inventory-bg"/>
+            <div class="slot" id="slot7"></div>
+            <div class="slot1" id="slot7_1"></div>
+        </div>
+    </div>
+
+    <!-- Room 8 Game -->
+    <div class="game-screen hidden" id="room8">
+        <img src="ROOM 8/1 BG.jpg" class="bg-image" id="bg8_1"/>
+        <img src="ROOM 8/2 BG.jpg" class="bg-image8_2" id="bg8_2"/>
+        <img src="ROOM 8/game inventry@3x.png" class="inventory-bg8"/>
+        <div class="hitbox8_1" id="hitbox8_1"></div>
+        <img src="ROOM 8/scissor.png" class="scissor8" id="scissor8"/>
+        <div class="hitbox8_2" id="hitbox8_2"></div>
+        <img src="ROOM 8/letter box.png" class="letterbox8" id="letterbox8"/>
+        <img src="ROOM 8/CLOSE BUTTON.png" class="closebtn8" id="closebtn8"/>
+        <img src="ROOM 8/key.png" class="inventory-key8" id="inventoryKey8"/>
+        <div class="door-hitbox8" id="doorHitbox8"></div>
+        <img src="ROOM 8/final panel 6.png" class="final-panel8" id="finalPanel8"/>
+        <img src="ROOM 8/CLOSE BUTTON.png" id="panelCloseBtn8" class="panel-close-btn8" />
+        
+        <div class="lastoptions" id="lastoptions8" style="display: none;">
+            <img src="room 7/ICONS/HOME@3x.png" id="homeBtn8"/>
+            <img src="room 7/ICONS/SETTING@3x.png" id="settingBtn8"/>
+            <img src="room 7/ICONS/PLAY@3x.png" id="nextBtn8"/>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom8">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom8" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom8" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom8" data-active="true" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Room 9 Game -->
+    <div class="game-screen hidden" id="room9">
+        <img id="sceneImage9" src="room 9/1 bg.jpg" class="bg-image"/>
+        <div class="clue-area9" id="clueArea9"></div>
+        <img src="room 9/clue.png" class="overlay-image9 hidden" id="overlay9"/>
+        <img src="room 9/CLOSE BUTTON.png" id="closeBtn9" class="close-btn9 hidden"/>
+        <div class="box-area9" id="boxArea9"></div>
+        <div class="lock-area9 disabled" id="lockArea9"></div>
+        <div class="keypad-wrapper9" id="keypadWrapper9">
+            <div class="button-grid9" id="buttonGrid9"></div>
+        </div>
+        <div class="key-area9 disabled" id="keyArea9"></div>
+        <div class="final-lock-area9 disabled" id="finalLockArea9"></div>
+        <img src="room 9/ICONS/CLOSE@3x.png" id="finalCloseBtn9" class="final-close-btn9 hidden"/>
+
+        <div class="lastoptions" id="lastoptions9" style="display: none;">
+            <img src="room 9/ICONS/HOME@3x.png" id="homeBtn9"/>
+            <img src="room 9/ICONS/SETTING@3x.png" id="settingBtn9"/>
+            <img src="room 9/ICONS/PLAY@3x.png" id="nextBtn9"/>
+        </div>
+
+        <div class="settings-popup" id="settingsRoom9">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom9" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom9" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom9" data-active="true" />
+                </div>
+            </div>
+        </div>
+
+        <div class="inventory">
+            <img src="room 9/game inventry@3x.png" class="inventory-bg"/>
+            <div class="slot" id="slot9"></div>
+            <div class="slot1" id="slot9_1"></div>
+        </div>
+    </div>
+
+    <!-- Room 10 Game -->
+    <div class="game-screen hidden" id="room10">
+        <img src="room 10/1.jpg" class="bg-image" id="bgImage10"/>
+        <img src="room 10/game inventry@3x.png" class="inventory-bg10"/>
+        <img src="room 10/CLOSE BUTTON.png" class="closebtn10" id="closebtn10"/>
+        <div class="hitbox10" id="hitbox10"></div>
+        
+        <div class="zoomoverlay10" id="zoomoverlay10">
+            <img src="room 10/puzzles/clue.png" class="clue10" id="small-clue10"/>
+            <div class="box-container10">
+                <img src="room 10/puzzles/Foxzoid-2.png" class="clue10"/>
+                <div class="color-grid10">
+                    <div class="slot10" id="slot10_1"></div><div class="slot10" id="slot10_2"></div><div class="slot10" id="slot10_3"></div>
+                    <div class="slot10" id="slot10_4"></div><div class="slot10" id="slot10_5"></div><div class="slot10" id="slot10_6"></div>
+                    <div class="slot10" id="slot10_7"></div><div class="slot10" id="slot10_8"></div><div class="slot10" id="slot10_9"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="lastoptions" id="lastoptions10" style="display: none;">
+            <img src="room 10/HOME@3x.png" class="homebtn" id="homeBtn10"/>
+            <img src="room 10/SETTING@3x.png" class="settingbtn" id="settingBtn10"/>
+            <img src="room 10/PLAY@3x.png" class="playbtn" id="nextBtn10"/>
+        </div>
+        
+        <img src="room 10/final panel 10@2x.png" id="finalPanel10" class="success-panel10"/>
+        <img src="room 10/CLOSE BUTTON.png" class="closebtn10_2" id="closebtn10_2"/>
+
+        <div class="settings-popup" id="settingsRoom10">
+            <div class="settings-box">
+                <img src="homepage/panneldesign/close button.png" class="settings-close-btn" id="closeSettingsRoom10" />
+                <h2>Settings</h2>
+                <div class="setting-item">
+                    <span>🔊 Sound</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="soundToggleRoom10" data-active="true" />
+                </div>
+                <div class="setting-item">
+                    <span>🎵 Music</span>
+                    <img src="homepage/panneldesign/volume button.png" class="toggle-btn" id="musicToggleRoom10" data-active="true" />
+                </div>
+            </div>
         </div>
     </div>
 

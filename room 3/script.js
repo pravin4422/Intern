@@ -17,6 +17,11 @@ let isBoxOPen=false;
 let hasKeyBeenTaken=false;
 let isBoxActive =true;
 
+window.addEventListener('pageshow', function(event) {
+    if (event.persisted) {
+        location.reload();
+    }
+});
 
 smallBox.addEventListener('click',() =>{
     if(isBoxActive){
@@ -33,7 +38,7 @@ box1.addEventListener('click', function(){
     }
     else if(isBoxOPen && !hasKeyBeenTaken){
         this.src = "room 3/gameplay 3 @3x@3x.png";
-        inventoryKey.style.display = 'block'; // Show key in inventory
+        inventoryKey.style.display = 'block';
         hasKeyBeenTaken = true;
         
         isBoxActive = false;
@@ -50,8 +55,6 @@ closeBtn.addEventListener('click',() =>{
     box1.src='room 3/gameplay 1@3x.png';
 });
 
-// key event to unlock the door
-
 inventoryKey.addEventListener('dragstart', (e) =>{
     e.dataTransfer.setData("text", e.target.id);
 });
@@ -65,17 +68,12 @@ doorlock.addEventListener('drop', (e) =>{
 
     if(data === "key"){
         mainBg.src="room 3/game play bg final@3x@3x.jpg";
-
         inventoryKey.style.display='none';
-
         doorlock.style.display='none';
         setTimeout(() => {
             finalPanel.style.display = 'block';
             lastoptions.style.display='flex';
-            console.log("Success Panel Displayed");
+            localStorage.setItem('unlockedLevel', '4');
         }, 500); 
-
-        console.log("finally the door is open !!!");
     }
 });
-

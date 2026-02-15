@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>100 Doors Menu</title>
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<div class="game-container">
+  <img src="doorgame/SETTING BUTTON.png"  
+
+  class="settings-icon" onclick="openSettings()" />
+  <img src="doorgame/100 door tittle.png" height="220px" width="220px">
+
+  <div class="container">
+    <div class="header">
+        <div class="info-button">i</div>
+        <div class="lamp"></div>
+    </div>
+    <center><div class="menu">
+        <button class="menu-btn" id="play">PLAY</button>
+        <button class="menu-btn" id="levels">LEVELS</button>
+        <button class="menu-btn" id="games">MOREGAME</button>
+    </div></center> 
+</div>
+
+<!-- SETTINGS POPUP -->
+<div class="settings-popup" id="settings">
+
+  <div class="settings-box">
+    <h2>Settings</h2>
+
+    <label>
+      🔊 Sound
+      <input type="checkbox" checked>
+    </label>
+
+    <label>
+      🎵 Music
+      <input type="checkbox" checked>
+    </label>
+
+    <button class="close-btn" onclick="closeSettings()">CLOSE</button>
+  </div>
+</div>
+<div>
+<script>
+    const playBtn = document.getElementById("play");
+    const levelsBtn = document.getElementById("levels");
+    const gamesBtn = document.getElementById("games");
+    
+    // Add event listeners
+    playBtn.addEventListener("click", () => {
+        window.location.href = "play.html";
+    });
+    
+    levelsBtn.addEventListener("click", () => {
+        window.location.href = "levels.html";
+    });
+    
+    gamesBtn.addEventListener("click", () => {
+        window.location.href = "moregame.html";
+    });
+    </script>
+    <script>
+    function openSettings() {
+      alert("Settings clicked!");
+  // OR redirect:
+  // window.location.href = "settings.html";
+}
+    </script>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -7,6 +7,133 @@ body{
     height: 100vh;
 }
 
+/* Homepage Styles */
+.homepage-screen {
+    width: 360px;
+    height: 640px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.game-container {
+    width: 100%;
+    height: 100%;
+    background: url("homepage/doorgame/home page without tittle.jpg") no-repeat center/cover;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.settings-icon {
+    position: absolute;
+    top: -180px;
+    right: -120px;
+    width: 320px;
+    height: 500px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 50px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.menu-btn {
+    width: 220px;
+    padding: 16px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    background: #f0ad48;
+    box-shadow: 0 6px #d18c2c;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.menu-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #d18c2c;
+}
+
+/* Settings Popup */
+.settings-popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.homepage-screen .settings-popup {
+    border-radius: 20px;
+}
+
+.settings-box {
+    width: 280px;
+    background: #fff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.settings-close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.settings-box h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.toggle-btn {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.toggle-btn:active {
+    transform: scale(0.9);
+}
+
 .mobile-screen{
     width: 360px;
     height: 640px;
@@ -14,6 +141,36 @@ body{
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+.home-btn-level {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.home-btn-level:active {
+    transform: scale(0.9);
+}
+
+.next-btn-level {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.2s;
+}
+
+.next-btn-level:active {
+    transform: scale(0.9);
 }
 
 .level-page{
@@ -89,7 +246,7 @@ body{
     position: relative;
     width: 360px;
     height: 640px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .bg-image {
@@ -132,13 +289,14 @@ body{
 
 .key {
     position: absolute;
-    bottom: 100px;
-    left: 160px;
+    bottom: 125px;
+    left: 47%;
     transform: translateX(-50%);
     width: 50px;
+    height: auto;
     cursor: pointer;
-    pointer-events: none;
-    z-index: 3;  
+    z-index: 3;
+    transition: opacity 0.3s ease;
 }
 
 .inventory {
@@ -182,12 +340,13 @@ body{
 
 .key-area {
     position: absolute;
-    bottom: 115px;    
-    right: 158px;
-    width: 40px;
-    height: 44px;
+    bottom: 115px;
+    left: 47%;
+    width: 50px;
+    height: 50px;
     transform: translateX(-50%);
     cursor: pointer;
+    z-index: 10;
 }
 
 .key-area.disabled {
@@ -229,7 +388,7 @@ body{
 
 .lastoptions {
     position: absolute;
-    top: 58%;
+    top: 68%;
     left: 48%;
     transform: translateX(-50%);
     display: flex;
@@ -327,7 +486,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 0.5px;
     z-index: 2;
 }
 
@@ -399,13 +558,37 @@ body{
     width: 100%; z-index: 1000; display: none;
 }
 
+.panel-close-btn3 {
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: transform 0.2s;
+}
+.panel-close-btn3:active { transform: scale(0.9); }
+
 .lastoptions {
     position: absolute; top: 52%; left: 48%; transform: translateX(-50%);
     display: flex; gap: 20px; z-index: 1001;
 }
 
+#lastoptions3 {
+    top: 60%;
+}
+
+#lastoptions4 {
+    top: 60%;
+}
+
+#lastoptions5 {
+    top: 60%;
+}
+
 .lastoptions img {
-    width: 40px; height: 40px; cursor: pointer; transition: transform 0.1s;
+    width: 50px; height: 50px; cursor: pointer; transition: transform 0.1s;
 }
 .lastoptions img:active { transform: scale(0.9); }
 
@@ -502,6 +685,18 @@ body{
     z-index: 202;
 }
 
+.panel-close-btn4 {
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: transform 0.2s;
+}
+.panel-close-btn4:active { transform: scale(0.9); }
+
 /* Room 5 Game Styles */
 #room5 { background: #000; }
 
@@ -596,6 +791,12 @@ body{
 
 #lastoptions5 {
     z-index: 1004;
+    top: 60%;
+}
+
+#lastoptions5 img {
+    width: 60px;
+    height: 60px;
 }
 
 .final-close-btn5 {
@@ -604,6 +805,7 @@ body{
 }
 
 .final-close-btn5.hidden { display: none; }
+.final-close-btn5:active { transform: scale(0.9); }
 
 /* Room 6 Game Styles */
 #room6 { background: wheat; }
@@ -659,3 +861,396 @@ body{
 }
 
 .color-btn6:active { transform: scale(0.9); }
+
+.inventory-bg6 {
+    position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 300;
+}
+
+#lastoptions6 {
+    top: 48%;
+}
+
+#lastoptions6 img {
+    width: 60px;
+    height: 60px;
+}
+
+.panel-close-btn6 {
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: transform 0.2s;
+    display: none;
+}
+.panel-close-btn6:active { transform: scale(0.9); }
+
+
+/* Room 7 Game Styles */
+#room7 { background: #000; }
+
+#room7 .inventory {
+    position: absolute; bottom: 0; width: 100%; height: 100px;
+    z-index: 400; pointer-events: none;
+}
+
+.locked-box7 {
+    position: absolute; bottom: 128px; right: 40px; width: 85px; height: 75px;
+    cursor: pointer; z-index: 10;
+}
+
+.key-area7 {
+    position: absolute; bottom: 235px; right: 123px; width: 35px; height: 15px;
+    cursor: pointer; z-index: 4;
+}
+
+.crowbar7 {
+    position: absolute; bottom: 180px; left: 70px; width: 40px; height: 15px;
+    cursor: pointer; z-index: 5;
+}
+
+#room7 .slot {
+    position: absolute; left: 35px; bottom: 23px; width: 50px; height: 50px;
+    pointer-events: auto; z-index: 401;
+}
+
+.slot1 {
+    position: absolute; left: 125px; bottom: 23px; width: 50px; height: 50px;
+    pointer-events: auto; z-index: 401;
+}
+
+.overlay-image7 {
+    position: absolute; inset: 0; left: 18px; width: 90%; height: 85%;
+    object-fit: contain; z-index: 1; pointer-events: auto;
+}
+
+.overlay-image7.hidden { display: none; }
+
+.finaloverlay-image7 {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: contain; z-index: 1; pointer-events: auto;
+}
+
+.finaloverlay-image7.hidden { display: none; }
+
+.close-btn7 {
+    position: absolute; bottom: 500px; left: 290px; width: 50px; height: 50px;
+    z-index: 200; cursor: pointer;
+}
+
+.close-btn7.hidden { display: none; }
+
+.final-key-area7 {
+    position: absolute; bottom: 375px; right: 120px; width: 60px; height: 60px;
+    cursor: pointer; z-index: 5;
+}
+
+.final-key-area7.disabled { pointer-events: none; }
+
+.final-crowbar-area7 {
+    position: absolute; bottom: 400px; right: 40px; width: 300px; height: 100px;
+    cursor: pointer; z-index: 5;
+}
+
+.final-crowbar-area7.disabled { pointer-events: none; }
+
+.locked-box-area7 {
+    position: absolute; bottom: 370px; right: 95px; width: 200px; height: 65px;
+    cursor: pointer; z-index: 5;
+}
+
+.locked-box-area7.disabled { pointer-events: none; }
+
+.locked-box-key-area7 {
+    position: absolute; bottom: 320px; right: 230px; width: 60px; height: 60px;
+    cursor: pointer; z-index: 5;
+}
+
+.locked-box-key-area7.disabled { pointer-events: none; }
+
+.final-door-area7 {
+    position: absolute; bottom: 325px; right: 210px; width: 30px; height: 50px;
+    cursor: pointer; z-index: 5;
+}
+
+.final-door-area7.disabled { pointer-events: none; }
+
+.final-close-btn7 {
+    position: absolute; bottom: 500px; left: 290px; width: 50px; height: 50px;
+    z-index: 200; cursor: pointer;
+}
+
+.final-close-btn7.hidden { display: none; }
+.final-close-btn7:active { transform: scale(0.9); }
+
+#lastoptions7 {
+    position: absolute; top: 60%; left: 57%; transform: translateX(-50%);
+    display: flex; gap: 30px; z-index: 1001; width: 250px; justify-content: center;
+}
+
+#lastoptions7 img {
+    width: 60px; height: 60px; cursor: pointer; transition: transform 0.1s;
+}
+
+#lastoptions7 img:active { transform: scale(0.9); }
+
+
+/* Room 8 Game Styles */
+#room8 { background: wheat; }
+
+.bg-image8_2 {
+    width: 100%; height: 100%; position: absolute; top: 0; left: 0;
+    object-fit: cover; z-index: -1; opacity: 0; visibility: hidden;
+    transition: opacity 0.5s ease;
+}
+
+.inventory-bg8 {
+    position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 300;
+}
+
+.hitbox8_1 {
+    position: absolute; top: 62%; left: 5%; width: 50px; height: 50px;
+    cursor: pointer; z-index: 30;
+}
+
+.scissor8 {
+    position: absolute; bottom: 18px; left: 30px; width: 40px;
+    z-index: 350; display: none; cursor: grab;
+    touch-action: none; user-select: none;
+}
+
+.hitbox8_2 {
+    position: absolute; top: 47%; left: 74%; width: 90px; height: 100px;
+    cursor: pointer; pointer-events: none; z-index: 30;
+}
+
+.letterbox8 {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 40%; z-index: 5; display: none; cursor: pointer;
+}
+
+.closebtn8 {
+    position: absolute; top: 30%; right: 30px; width: 40px;
+    cursor: pointer; transform: translate(-50%, -50%); z-index: 5; display: none;
+}
+
+.inventory-key8 {
+    position: absolute; bottom: 18px; left: 40px; width: 30px;
+    z-index: 350; cursor: grab; display: none;
+}
+
+.door-hitbox8 {
+    position: absolute; top: 40%; left: 35%; width: 50px; height: 70px;
+    z-index: 50; cursor: pointer;
+}
+
+.final-panel8 {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 80%; z-index: 1000; display: none;
+}
+
+#lastoptions8 {
+    position: absolute; top: 56%; left: 62%; transform: translateX(-50%);
+    display: flex; gap: 30px; z-index: 1001; width: 250px; justify-content: center;
+}
+
+#lastoptions8 img {
+    width: 50px; height: 50px; cursor: pointer; transition: transform 0.1s;
+}
+
+#lastoptions8 img:active { transform: scale(0.9); }
+
+.panel-close-btn8 {
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: transform 0.2s;
+    display: none;
+}
+.panel-close-btn8:active { transform: scale(0.9); }
+
+
+/* Room 9 Game Styles */
+#room9 { background: blanchedalmond; }
+
+#room9 .inventory {
+    position: absolute; bottom: 0; width: 100%; height: 100px;
+    z-index: 400; pointer-events: none;
+}
+
+#room9 .slot {
+    position: absolute; left: 27px; bottom: 12px; width: 50px; height: 50px;
+    pointer-events: auto; z-index: 401;
+}
+
+.clue-area9 {
+    position: absolute; bottom: 327px; left: 150px; width: 45px; height: 33px;
+    cursor: pointer; z-index: 10;
+}
+
+.clue-area9.disabled { pointer-events: none; }
+
+.box-area9 {
+    position: absolute; bottom: 375px; right: 16px; width: 65px; height: 40px;
+    cursor: pointer; z-index: 10;
+}
+
+.box-area9.disabled { pointer-events: none; }
+
+.overlay-image9 {
+    position: absolute; inset: 0; left: 10px; width: 95%; height: 95%;
+    object-fit: contain; z-index: 1; pointer-events: auto;
+}
+
+.overlay-image9.hidden { display: none; }
+
+.close-btn9 {
+    position: absolute; bottom: 500px; left: 290px; width: 50px; height: 50px;
+    z-index: 200; cursor: pointer;
+}
+
+.close-btn9.hidden { display: none; }
+
+.lock-area9 {
+    position: absolute; bottom: 265px; left: 145px; width: 70px; height: 110px;
+    cursor: pointer; z-index: 2;
+}
+
+.lock-area9.disabled { pointer-events: none; }
+
+.num-btn9 {
+    width: 100%; height: auto; cursor: pointer; transition: transform 0.1s;
+}
+
+.num-btn9:active { transform: scale(0.9); filter: brightness(1.2); }
+
+.keypad-wrapper9 {
+    position: absolute; top: 36%; left: 48%; transform: translate(-50%, -50%);
+    width: 240px; z-index: 210; pointer-events: none; display: none;
+}
+
+.button-grid9 {
+    position: absolute; top: 19%; left: 20%; width: 62%; height: 40%;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; pointer-events: auto;
+}
+
+.key-area9 {
+    position: absolute; bottom: 255px; right: 135px; width: 115px; height: 30px;
+    cursor: pointer; z-index: 2;
+}
+
+.key-area9.disabled { pointer-events: none; }
+
+.final-lock-area9 {
+    position: absolute; bottom: 360px; right: 180px; width: 60px; height: 60px;
+    cursor: pointer; z-index: 5;
+}
+
+.final-lock-area9.disabled { pointer-events: none; }
+
+#lastoptions9 {
+    position: absolute; top: 58%; left: 48%; transform: translateX(-50%);
+    display: flex; gap: 20px; z-index: 1001;
+}
+
+#lastoptions9 img {
+    width: 50px; height: 50px; cursor: pointer; transition: transform 0.1s;
+}
+
+#lastoptions9 img:active { transform: scale(0.9); }
+
+.final-close-btn9 {
+    position: absolute; bottom: 500px; left: 290px; width: 50px; height: 50px;
+    z-index: 200; cursor: pointer;
+}
+
+.final-close-btn9.hidden { display: none; }
+.final-close-btn9:active { transform: scale(0.9); }
+
+
+/* Room 10 Game Styles (Color Puzzle) */
+#room10 { background: wheat; }
+
+.inventory-bg10 {
+    position: absolute; width: 100%; left: 0%; bottom: 0%; z-index: 300;
+}
+
+.closebtn10 {
+    position: absolute; top: 30%; right: 30px; width: 40px;
+    cursor: pointer; transform: translate(-50%, -50%); z-index: 5; display: none;
+}
+
+.hitbox10 {
+    position: absolute; top: 58%; left: 31%; width: 100px; height: 100px;
+    cursor: pointer; z-index: 30;
+}
+
+.zoomoverlay10 {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: none; justify-content: center; align-items: center; z-index: 2;
+    gap: 15px; background-color: rgba(0, 0, 0, 0.6);
+}
+
+.clue10 {
+    position: relative; transform: none; width: 150px; cursor: pointer;
+}
+
+#small-clue10 { width: 80px; }
+
+.box-container10 {
+    position: relative; width: 150px; height: 150px;
+}
+
+.color-grid10 {
+    position: absolute; top: 13%; left: 13%; width: 74%; height: 74%;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr); z-index: 5;
+}
+
+.slot10 {
+    width: 100%; height: 100%; border: 0.5px solid rgba(0,0,0,0.1);
+    cursor: pointer; background-size: cover; transition: transform 0.2s ease;
+}
+
+.pink10 { background-image: url('room 10/puzzles/1st Row-1(1)@3x.png') !important; background-size: cover; }
+.blue10 { background-image: url('room 10/puzzles/1st Row-1(2)@3x.png') !important; background-size: cover; }
+.red10 { background-image: url('room 10/puzzles/1st Row-1(3)@3x.png') !important; background-size: cover; }
+
+.selected10 {
+    transform: scale(1.1); z-index: 10; box-shadow: 0 0 10px white;
+    outline: 2px solid white; transition: transform 0.2s ease;
+}
+
+@keyframes smoothRotate10 {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.rotating10 { animation: smoothRotate10 0.5s ease-in-out; z-index: 50; }
+
+.success-panel10 {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 90%; z-index: 1000; display: none;
+}
+
+#lastoptions10 {
+    position: absolute; top: 56%; left: 48%; transform: translateX(-50%);
+    display: flex; gap: 0px; z-index: 1001;
+}
+
+#lastoptions10 img {
+    width: 60px; height: 60px; cursor: pointer; transition: transform 0.1s;
+}
+
+.closebtn10_2 {
+    position: absolute; top: 20%; right: 20px; width: 40px;
+    cursor: pointer; transform: translate(-50%, -50%); z-index: 5; display: none;
+}
+.closebtn10_2:active { transform: translate(-50%, -50%) scale(0.9); }

@@ -1,0 +1,166 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: wheat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+
+}
+.container{
+    width: 370px;
+    height: 690px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    overflow: hidden;
+}
+.bg1{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -2;
+}
+.inventry{
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    bottom: 0%;
+    z-index: 300;
+}
+.hitbox{
+    position: absolute;
+    top: 58%;
+    left: 31%;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255,0,0,0);
+    cursor: pointer;
+    z-index: 30;
+
+}
+.closebtn{
+    position: absolute;
+    top: 30%;
+    right: 30px;
+    width: 40px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: none;
+}
+.zoomoverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.clue{
+    position: relative;
+    transform: none;
+    width: 150px;
+    cursor: pointer;
+   
+    
+}
+#small-clue{
+    width: 80px;
+    
+}
+.box-container {
+    position: relative;
+    width: 150px; /* Matches the size of your main clue box */
+    height: 150px;
+}
+.color-grid {
+    position: absolute;
+    top: 13%;    
+    left: 13%;   
+    width: 74%;  
+    height: 74%; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    z-index: 5; /* Sit above the plain box */
+}
+.slot {
+    width: 100%;
+    height: 100%;
+    border: 0.5px solid rgba(0,0,0,0.1); /* Subtle guide */
+    cursor: pointer;
+    background-size: cover;
+    transition: transform 0.2s ease;
+}
+.pink{background-image: url('puzzles/1st Row-1(1)@3x.png') !important;background-size: cover;}
+.blue{background-image: url('puzzles/1st Row-1(2)@3x.png') !important;background-size: cover;}
+.red{background-image: url('puzzles/1st Row-1(3)@3x.png') !important;background-size: cover;}
+
+.selected {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 0 10px white;
+    outline: 2px solid white;
+    transition: transform 0.2s ease;
+}
+/* The rotation animation */
+@keyframes smoothRotate {
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
+.rotating {
+    /* 0.5s makes it fast but readable. ease-in-out makes it smooth. */
+    animation: smoothRotate 0.5s ease-in-out; 
+    z-index: 50; 
+}
+.success-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; 
+    z-index: 1000; 
+    display: none; 
+}
+.lastoptions {
+    position: absolute;
+    top: 56%; /* Adjust to match safe height */
+    left: 48%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0px;
+    z-index: 1001;
+}
+#buttons {
+    width: 60px; /* Adjust size as needed */
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.closebtn2{
+    position: absolute;
+    top: 20%;
+    right: 20px;
+    width: 40px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    display: none;
+}
