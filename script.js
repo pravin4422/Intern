@@ -13,7 +13,10 @@ const closeSettingsBtn = document.getElementById("closeSettingsBtn");
 const soundToggle = document.getElementById("soundToggle");
 const musicToggle = document.getElementById("musicToggle");
 const homeBtnLevel = document.getElementById("homeBtnLevel");
+const homeBtnLevel2 = document.getElementById("homeBtnLevel2");
 const nextBtnLevel = document.getElementById("nextBtnLevel");
+const prevBtnLevel = document.getElementById("prevBtnLevel");
+const mobileScreen2 = document.querySelector(".mobile-screen-2");
 
 playBtn.addEventListener("click", () => {
     homepageScreen.classList.add("hidden");
@@ -58,13 +61,28 @@ homeBtnLevel.addEventListener("click", () => {
     homepageScreen.classList.remove("hidden");
 });
 
+homeBtnLevel2.addEventListener("click", () => {
+    mobileScreen2.classList.add("hidden");
+    homepageScreen.classList.remove("hidden");
+});
+
 nextBtnLevel.addEventListener("click", () => {
-    alert("Next 10 levels coming soon!");
+    mobileScreen.classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+prevBtnLevel.addEventListener("click", () => {
+    mobileScreen2.classList.add("hidden");
+    mobileScreen.classList.remove("hidden");
 });
 
 // Unlock levels on page load
 for (let i = 2; i <= unlockedLevel; i++) {
-    document.querySelector(`.level${i}`).classList.remove("locked");
+    if (i <= 10) {
+        document.querySelector(`.level${i}`).classList.remove("locked");
+    } else {
+        document.querySelector(`.level${i}`)?.classList.remove("locked");
+    }
 } 
 
 levels.forEach((level) => {
@@ -162,6 +180,7 @@ function resetRoom1() {
     carpet.classList.remove("hidden", "moved");
     key.classList.add("hidden");
     keyArea.classList.add("disabled");
+    keyArea.innerHTML = "";
     doorArea.classList.add("disabled");
     slot1.innerHTML = "";
     carpetMoved = false;
@@ -188,6 +207,12 @@ carpetArea.addEventListener("click", () => {
         carpetMoved = true;
         setTimeout(() => {
             key.classList.remove("hidden");
+            const keyImg = document.createElement("img");
+            keyImg.src = "room 1/key to open the door for room 1 copy.png";
+            keyImg.style.width = "50px";
+            keyImg.style.height = "auto";
+            keyImg.style.position = "absolute";
+            keyArea.appendChild(keyImg);
         });
         keyArea.classList.remove("disabled");
     }
@@ -198,6 +223,7 @@ keyArea.addEventListener("click", () => {
     
     keyCollected = true;
     key.classList.add("hidden");
+    keyArea.innerHTML = "";
     
     const inventoryKey = document.createElement("img");
     inventoryKey.src = "room 1/key to open the door for room 1.png";
@@ -227,13 +253,18 @@ doorArea.addEventListener("dragover", (e) => {
 doorArea.addEventListener("drop", (e) => {
     e.preventDefault();
     
-    bgImage.src = "room 1/room back ground after game end@3x.jpg";
-    inventoryKey.classList.add("hidden");
-
-    setTimeout(() => {
-        bgImage.classList.add("blur");
-        levelPanel1.classList.remove("hidden");
-    }, 1200);
+    const keyId = e.dataTransfer.getData("text/plain");
+    const draggedKey = document.getElementById(keyId);
+    
+    if (draggedKey) {
+        draggedKey.classList.add("hidden");
+        bgImage.src = "room 1/room back ground after game end@3x.jpg";
+        
+        setTimeout(() => {
+            bgImage.classList.add("blur");
+            levelPanel1.classList.remove("hidden");
+        }, 1200);
+    }
 });
 
 document.getElementById("nextBtn1").addEventListener("click", () => {
@@ -279,6 +310,7 @@ if (panelCloseBtn1) {
         carpet.classList.remove("hidden", "moved");
         key.classList.add("hidden");
         keyArea.classList.add("disabled");
+        keyArea.innerHTML = "";
         doorArea.classList.add("disabled");
         slot1.innerHTML = "";
         carpetMoved = false;
@@ -2020,6 +2052,9 @@ document.getElementById("musicToggleRoom10").addEventListener("click", function(
 });
 
 document.getElementById("nextBtn10").addEventListener("click", () => {
+    unlockedLevel = 11;
+    localStorage.setItem('unlockedLevel', unlockedLevel);
+    document.querySelector(".level11").classList.remove("locked");
     resetRoom10();
     document.getElementById("room10").classList.add("hidden");
     document.querySelector(".mobile-screen").classList.remove("hidden");
