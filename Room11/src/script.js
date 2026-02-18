@@ -155,12 +155,12 @@ function moveKey(dir) {
     document.querySelector('.door-container').style.display = "none";
     document.getElementById('open-door').style.display = "block";
     
-    // Show level complete panel after 2 seconds
+    // Show level complete panel after 3 seconds
     setTimeout(() => {
       document.getElementById('finalPanel11').style.display = "block";
       document.getElementById('lastoptions11').style.display = "flex";
       document.getElementById('panelCloseBtn11').style.display = "block";
-    }, 2000);
+    }, 3000);
     return;
   }
   

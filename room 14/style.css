@@ -60,6 +60,14 @@ body {
   width: 100%;
 }
 
+.slot {
+  position: absolute;
+  left: 35px;
+  bottom: 24px;
+  width: 50px;
+  height: 50px;
+}
+
 .clue-area {
   position: absolute;
   bottom: 185px;    
@@ -120,7 +128,6 @@ body {
     }
 
 .letter-open-area {
-
     position: absolute;
     bottom: 237px;    
     right: 40px;
@@ -130,4 +137,107 @@ body {
     cursor: pointer;
     transition: all 0.5s ease;
     z-index: 3; 
-}    
+} 
+
+.letter-open-area.disabled {
+  pointer-events: none; 
+  }
+
+.click-area {
+  position: absolute;
+  bottom: 120px;    
+  right: 278px;
+  width: 60px;
+  height: 65px;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.click-area.disabled {
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.color-buttons-container {
+  position: absolute;
+  top: 37.5%; /* Adjust to match safe height */
+  left: 45%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0px;
+  /* z-index: 215; */
+  z-index: 200;
+}
+
+.color-btn {
+  width: 70.5px; /* Adjust size as needed */
+  height: 70px;
+  cursor: pointer;
+  transition: transform 0.1s;
+  z-index: 20;
+}
+
+.key-area {
+  position: absolute;
+  bottom: 225px;    
+  left: 100px;
+  width: 70px;
+  height: 120px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  z-index: 2;   
+  }
+
+.key-area.disabled {
+  pointer-events: none; 
+  }
+
+.final-lock-area {
+    position: absolute;
+    bottom: 240px;    
+    right: 140px;
+    width: 40px;
+    height: 60px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 5;
+}
+
+.final-lock-area.disabled {
+    pointer-events: none;
+
+}
+
+.final-close-btn {
+  position: absolute;
+  bottom: 500px;
+  left: 290px;
+  width: 50px;
+  height: 50px;
+  z-index: 200;
+  cursor: pointer;
+}
+
+.final-close-btn.hidden {
+  display: none;
+}
+
+.lastoptions {
+  position: absolute;
+  top: 58%; /* Adjust to match safe height */
+  left: 48%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1001;
+}
+
+#lastButtons {
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.1s;
+}

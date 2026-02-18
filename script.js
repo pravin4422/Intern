@@ -13,9 +13,7 @@ const closeSettingsBtn = document.getElementById("closeSettingsBtn");
 const soundToggle = document.getElementById("soundToggle");
 const musicToggle = document.getElementById("musicToggle");
 const homeBtnLevel = document.getElementById("homeBtnLevel");
-const homeBtnLevel2 = document.getElementById("homeBtnLevel2");
 const nextBtnLevel = document.getElementById("nextBtnLevel");
-const prevBtnLevel = document.getElementById("prevBtnLevel");
 const mobileScreen2 = document.querySelector(".mobile-screen-2");
 
 playBtn.addEventListener("click", () => {
@@ -59,11 +57,7 @@ musicToggle.addEventListener("click", function() {
 homeBtnLevel.addEventListener("click", () => {
     mobileScreen.classList.add("hidden");
     homepageScreen.classList.remove("hidden");
-});
-
-homeBtnLevel2.addEventListener("click", () => {
-    mobileScreen2.classList.add("hidden");
-    homepageScreen.classList.remove("hidden");
+    history.pushState({ page: 'home' }, '', '#home');
 });
 
 nextBtnLevel.addEventListener("click", () => {
@@ -71,15 +65,24 @@ nextBtnLevel.addEventListener("click", () => {
     mobileScreen2.classList.remove("hidden");
 });
 
-prevBtnLevel.addEventListener("click", () => {
-    mobileScreen2.classList.add("hidden");
-    mobileScreen.classList.remove("hidden");
-});
+const prevBtnLevel = document.getElementById("prevBtnLevel");
+if (prevBtnLevel) {
+    prevBtnLevel.addEventListener("click", () => {
+        mobileScreen2.classList.add("hidden");
+        mobileScreen.classList.remove("hidden");
+    });
+}
+
+// Always show next button
+nextBtnLevel.style.display = 'block';
 
 // Unlock levels on page load
 for (let i = 2; i <= unlockedLevel; i++) {
     if (i <= 10) {
         document.querySelector(`.level${i}`).classList.remove("locked");
+    } else if (i === 11) {
+        const level11 = document.querySelector(".level11");
+        if (level11) level11.classList.remove("locked");
     } else {
         document.querySelector(`.level${i}`)?.classList.remove("locked");
     }
@@ -91,50 +94,69 @@ levels.forEach((level) => {
         const levelNum = Number(level.dataset.level);
         console.log("Clicked level:", levelNum); 
 
-        if (levelNum <= unlockedLevel) {
-            if (levelNum === 1) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room1").classList.remove("hidden");
-                history.pushState({ page: 'room1', from: 'levels' }, '', '#room1');
-            } else if (levelNum === 2) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room2").classList.remove("hidden");
-                history.pushState({ page: 'room2', from: 'levels' }, '', '#room2');
-            } else if (levelNum === 3) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room3").classList.remove("hidden");
-                history.pushState({ page: 'room3', from: 'levels' }, '', '#room3');
-            } else if (levelNum === 4) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room4").classList.remove("hidden");
-                history.pushState({ page: 'room4', from: 'levels' }, '', '#room4');
-            } else if (levelNum === 5) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room5").classList.remove("hidden");
-                history.pushState({ page: 'room5', from: 'levels' }, '', '#room5');
-            } else if (levelNum === 6) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room6").classList.remove("hidden");
-                history.pushState({ page: 'room6', from: 'levels' }, '', '#room6');
-            } else if (levelNum === 7) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room7").classList.remove("hidden");
-                history.pushState({ page: 'room7', from: 'levels' }, '', '#room7');
-            } else if (levelNum === 8) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room8").classList.remove("hidden");
-                history.pushState({ page: 'room8', from: 'levels' }, '', '#room8');
-            } else if (levelNum === 9) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room9").classList.remove("hidden");
-                history.pushState({ page: 'room9', from: 'levels' }, '', '#room9');
-            } else if (levelNum === 10) {
-                document.querySelector(".mobile-screen").classList.add("hidden");
-                document.getElementById("room10").classList.remove("hidden");
-                history.pushState({ page: 'room10', from: 'levels' }, '', '#room10');
-            } else {
-                window.location.href = `levelpage/level${levelNum}.html`;
-            }
+        if (levelNum === 1) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room1").classList.remove("hidden");
+            history.pushState({ page: 'room1', from: 'levels' }, '', '#room1');
+        } else if (levelNum === 2) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room2").classList.remove("hidden");
+            history.pushState({ page: 'room2', from: 'levels' }, '', '#room2');
+        } else if (levelNum === 3) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room3").classList.remove("hidden");
+            history.pushState({ page: 'room3', from: 'levels' }, '', '#room3');
+        } else if (levelNum === 4) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room4").classList.remove("hidden");
+            history.pushState({ page: 'room4', from: 'levels' }, '', '#room4');
+        } else if (levelNum === 5) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room5").classList.remove("hidden");
+            history.pushState({ page: 'room5', from: 'levels' }, '', '#room5');
+        } else if (levelNum === 6) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room6").classList.remove("hidden");
+            history.pushState({ page: 'room6', from: 'levels' }, '', '#room6');
+        } else if (levelNum === 7) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room7").classList.remove("hidden");
+            history.pushState({ page: 'room7', from: 'levels' }, '', '#room7');
+        } else if (levelNum === 8) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room8").classList.remove("hidden");
+            history.pushState({ page: 'room8', from: 'levels' }, '', '#room8');
+        } else if (levelNum === 9) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room9").classList.remove("hidden");
+            history.pushState({ page: 'room9', from: 'levels' }, '', '#room9');
+        } else if (levelNum === 10) {
+            document.querySelector(".mobile-screen").classList.add("hidden");
+            document.getElementById("room10").classList.remove("hidden");
+            history.pushState({ page: 'room10', from: 'levels' }, '', '#room10');
+        } else if (levelNum === 11) {
+            mobileScreen2.classList.add("hidden");
+            homepageScreen.classList.add("hidden");
+            document.getElementById("room11").classList.remove("hidden");
+            history.pushState({ page: 'room11', from: 'levels' }, '', '#room11');
+        } else if (levelNum === 12) {
+            mobileScreen2.classList.add("hidden");
+            document.getElementById("room12").classList.remove("hidden");
+            history.pushState({ page: 'room12', from: 'levels' }, '', '#room12');
+        } else if (levelNum === 13) {
+            mobileScreen2.classList.add("hidden");
+            document.getElementById("room13").classList.remove("hidden");
+            history.pushState({ page: 'room13', from: 'levels' }, '', '#room13');
+        } else if (levelNum === 14) {
+            mobileScreen2.classList.add("hidden");
+            document.getElementById("room14").classList.remove("hidden");
+            history.pushState({ page: 'room14', from: 'levels' }, '', '#room14');
+        } else if (levelNum === 15) {
+            mobileScreen2.classList.add("hidden");
+            alert(`Level ${levelNum} game coming soon!`);
+            mobileScreen2.classList.remove("hidden");
+        } else {
+            window.location.href = `levelpage/level${levelNum}.html`;
         }
     });
 });
@@ -150,6 +172,9 @@ window.addEventListener('popstate', (e) => {
     resetRoom8();
     resetRoom9();
     resetRoom10();
+    resetRoom11();
+    resetRoom12();
+    resetRoom14();
     document.getElementById("room1").classList.add("hidden");
     document.getElementById("room2").classList.add("hidden");
     document.getElementById("room3").classList.add("hidden");
@@ -160,16 +185,19 @@ window.addEventListener('popstate', (e) => {
     document.getElementById("room8").classList.add("hidden");
     document.getElementById("room9").classList.add("hidden");
     document.getElementById("room10").classList.add("hidden");
+    document.getElementById("room11").classList.add("hidden");
+    document.getElementById("room12").classList.add("hidden");
+    document.getElementById("room14").classList.add("hidden");
+    mobileScreen.classList.add("hidden");
+    mobileScreen2.classList.add("hidden");
+    homepageScreen.classList.add("hidden");
     
     if (e.state && e.state.page === 'levels') {
         mobileScreen.classList.remove("hidden");
-        homepageScreen.classList.add("hidden");
-    } else if (e.state && e.state.from === 'homepage') {
+    } else if (e.state && e.state.page === 'home') {
         homepageScreen.classList.remove("hidden");
-        mobileScreen.classList.add("hidden");
     } else {
         homepageScreen.classList.remove("hidden");
-        mobileScreen.classList.add("hidden");
     }
 });
 
@@ -205,10 +233,11 @@ carpetArea.addEventListener("click", () => {
     if (!carpetMoved) {
         carpet.classList.add("moved");
         carpetMoved = true;
+        carpetArea.style.cursor = "default";
         setTimeout(() => {
             key.classList.remove("hidden");
             const keyImg = document.createElement("img");
-            keyImg.src = "room 1/key to open the door for room 1 copy.png";
+            keyImg.src = "room 1/key to open the door for room 1.png";
             keyImg.style.width = "50px";
             keyImg.style.height = "auto";
             keyImg.style.position = "absolute";
@@ -224,6 +253,7 @@ keyArea.addEventListener("click", () => {
     keyCollected = true;
     key.classList.add("hidden");
     keyArea.innerHTML = "";
+    keyArea.style.cursor = "default";
     
     const inventoryKey = document.createElement("img");
     inventoryKey.src = "room 1/key to open the door for room 1.png";
@@ -282,10 +312,6 @@ document.getElementById("homeBtn1").addEventListener("click", () => {
     document.querySelector(".homepage-screen").classList.remove("hidden");
 });
 
-document.getElementById("settingBtn1").addEventListener("click", () => {
-    document.getElementById("settingsRoom1").style.display = "flex";
-});
-
 document.getElementById("closeSettingsRoom1").addEventListener("click", () => {
     document.getElementById("settingsRoom1").style.display = "none";
 });
@@ -339,6 +365,7 @@ leafArea.addEventListener("click", () => {
         leaf.classList.add("moved");
         bgImage2.classList.add("blur-bg");
         closeBtn.classList.remove("hidden");
+        leafArea.style.cursor = "default";
         setTimeout(() => {
             if (!buttonCollected) {
                 floorButton.classList.remove("hidden");
@@ -367,6 +394,7 @@ closeBtn.addEventListener("click", (e) => {
 buttonArea.addEventListener("click", () => {
     if (leafMoved && !buttonCollected) {
         buttonCollected = true;
+        buttonArea.style.cursor = "default";
         const invItem = document.createElement("img");
         invItem.src = "Room2/images/room2/button_3x-removebg-preview.png";
         invItem.id = "inventoryButton";
@@ -415,10 +443,6 @@ document.getElementById("homeBtn").addEventListener("click", () => {
     resetRoom2();
     document.getElementById("room2").classList.add("hidden");
     document.querySelector(".homepage-screen").classList.remove("hidden");
-});
-
-document.getElementById("settingBtn2").addEventListener("click", () => {
-    document.getElementById("settingsRoom2").style.display = "flex";
 });
 
 document.getElementById("closeSettingsRoom2").addEventListener("click", () => {
@@ -525,6 +549,7 @@ doorlock3.addEventListener('drop', (e) => {
         key3.style.display = 'none';
         doorlock3.style.display = 'none';
         setTimeout(() => {
+            bgImage3.classList.add("blur");
             finalPanel3.style.display = 'block';
             lastoptions3.style.display = 'flex';
         }, 500);
@@ -535,10 +560,6 @@ document.getElementById("homeBtn3").addEventListener("click", () => {
     resetRoom3();
     document.getElementById("room3").classList.add("hidden");
     document.querySelector(".mobile-screen").classList.remove("hidden");
-});
-
-document.getElementById("settingBtn3").addEventListener("click", () => {
-    document.getElementById("settingsRoom3").style.display = "flex";
 });
 
 document.getElementById("closeSettingsRoom3").addEventListener("click", () => {
@@ -574,6 +595,7 @@ if (document.getElementById("panelCloseBtn3")) {
 
 function resetRoom3() {
     bgImage3.src = "room 3/room 3/1st bg@3x.jpg";
+    bgImage3.classList.remove("blur");
     box1.src = 'room 3/room 3/gameplay 1@3x.png';
     zoomOverlay.style.display = 'none';
     key3.style.display = 'none';
@@ -747,6 +769,7 @@ doorButtonGrid4.addEventListener('pointerdown', (e) => {
                 doorEnteredCode4 = "";
             }, 100);
             setTimeout(() => {
+                bgImage4.classList.add("blur");
                 finalPanel4.style.display = 'block';
                 lastoptions4.style.display = 'flex';
             }, 500);
@@ -768,10 +791,6 @@ document.getElementById("homeBtn4").addEventListener("click", () => {
     resetRoom4();
     document.getElementById("room4").classList.add("hidden");
     document.querySelector(".mobile-screen").classList.remove("hidden");
-});
-
-document.getElementById("settingBtn4").addEventListener("click", () => {
-    document.getElementById("settingsRoom4").style.display = "flex";
 });
 
 document.getElementById("closeSettingsRoom4").addEventListener("click", () => {
@@ -807,6 +826,7 @@ if (document.getElementById("panelCloseBtn4")) {
 
 function resetRoom4() {
     bgImage4.src = "room 4/room 4/1@3x.png";
+    bgImage4.classList.remove("blur");
     clueItem4.style.display = 'none';
     clueItem4.style.visibility = 'visible';
     clueItem4_2.style.display = 'none';
@@ -861,7 +881,8 @@ leftPot5.addEventListener("click", () => {
 
 key5.addEventListener("click", () => {
     keyCollected5 = true;
-    key5.style.opacity = "0.4";
+    key5.style.display = "none";
+    sceneImage5.src = "room 5/3rd after collected key.png";
     inventoryKey5.classList.remove("hidden");
     clickArea5.classList.remove("disabled");
     finalKey5_2.classList.remove("disabled");
@@ -946,6 +967,7 @@ finalKey5.addEventListener("drop", (e) => {
         keyCollected5_2 = true;
         setTimeout(() => {
             overlay5.classList.add("blur");
+            sceneImage5.classList.add("blur");
             finalOverlay5.classList.remove("hidden");
             lastoptions5.style.display = 'block';
             finalCloseBtn5.classList.remove("hidden");
@@ -963,10 +985,6 @@ document.getElementById("homeBtn5").addEventListener("click", () => {
     resetRoom5();
     document.getElementById("room5").classList.add("hidden");
     document.querySelector(".mobile-screen").classList.remove("hidden");
-});
-
-document.getElementById("settingBtn5").addEventListener("click", () => {
-    document.getElementById("settingsRoom5").style.display = "flex";
 });
 
 document.getElementById("closeSettingsRoom5").addEventListener("click", () => {
@@ -1005,6 +1023,7 @@ function resetRoom5() {
     sceneImage5.classList.remove("blur");
     leftPot5.style.display = "block";
     key5.classList.add("disabled");
+    key5.style.display = "block";
     key5.style.opacity = "1";
     key5_2.classList.add("disabled");
     key5_2.style.display = "block";
@@ -1105,6 +1124,7 @@ buttonGrid6.addEventListener('pointerdown', (e) => {
     if (!isBoxOpen6 || !e.target.classList.contains('num-btn')) return;
     const val = e.target.dataset.val;
     e.target.src = `Room 6/when we click/${val}@3x.png`;
+    setTimeout(() => e.target.src = `Room 6/digital lock croped/${val}@3x.png`, 150);
     
     if (val !== 'w' && val !== 'e') {
         enteredCode6 += val;
@@ -1144,6 +1164,16 @@ closebtn6.addEventListener('click', () => {
     colorButtons6.style.display = 'none';
     isBoxOpen6 = false;
     enteredCode6 = "";
+    buttonGrid6.querySelectorAll('.num-btn').forEach(btn => {
+        const v = btn.dataset.val;
+        btn.src = `Room 6/digital lock croped/${v}@3x.png`;
+    });
+    redBtn6.src = "Room 6/red button.png";
+    whiteBtn6.src = "Room 6/white button.png";
+    yellowBtn6.src = "Room 6/yellow.png";
+    redBtnState6 = 0;
+    whiteBtnState6 = 0;
+    yellowBtnState6 = 0;
 });
 
 hitbox6_5.addEventListener('click', () => {
@@ -1184,23 +1214,24 @@ function checkColorPuzzle6() {
     if (lockOpened6 && redBtnState6 === 2 && yellowBtnState6 === 1 && whiteBtnState6 === 2) {
         setTimeout(() => {
             openDoor6.classList.add('show-door');
-        }, 100);
-        
-        [hitbox6_1, hitbox6_2, hitbox6_3, hitbox6_4, hitbox6_5].forEach(box => {
-            box.style.pointerEvents = 'none';
-        });
-        
-        mainBg6.style.filter = "none";
-        colorButtons6.style.display = 'none';
-        closebtn6.style.display = 'none';
-        
-        setTimeout(() => {
-            finalPanel6.style.display = 'block';
-            lastoptions6.style.display = 'flex';
-            if (document.getElementById("panelCloseBtn6")) {
-                document.getElementById("panelCloseBtn6").style.display = 'block';
-            }
-        }, 500);
+            
+            [hitbox6_1, hitbox6_2, hitbox6_3, hitbox6_4, hitbox6_5].forEach(box => {
+                box.style.pointerEvents = 'none';
+            });
+            
+            mainBg6.style.filter = "none";
+            colorButtons6.style.display = 'none';
+            closebtn6.style.display = 'none';
+            
+            setTimeout(() => {
+                finalPanel6.style.display = 'block';
+                lastoptions6.style.display = 'flex';
+                mainBg6.style.filter = "blur(3px)";
+                if (document.getElementById("panelCloseBtn6")) {
+                    document.getElementById("panelCloseBtn6").style.display = 'block';
+                }
+            }, 500);
+        }, 800);
     }
 }
 
@@ -1208,10 +1239,6 @@ document.getElementById("homeBtn6").addEventListener("click", () => {
     resetRoom6();
     document.getElementById("room6").classList.add("hidden");
     document.querySelector(".mobile-screen").classList.remove("hidden");
-});
-
-document.getElementById("settingBtn6").addEventListener("click", () => {
-    document.getElementById("settingsRoom6").style.display = "flex";
 });
 
 document.getElementById("closeSettingsRoom6").addEventListener("click", () => {
@@ -1467,10 +1494,6 @@ document.getElementById("homeBtn7").addEventListener("click", () => {
     document.querySelector(".mobile-screen").classList.remove("hidden");
 });
 
-document.getElementById("settingBtn7").addEventListener("click", () => {
-    document.getElementById("settingsRoom7").style.display = "flex";
-});
-
 document.getElementById("closeSettingsRoom7").addEventListener("click", () => {
     document.getElementById("settingsRoom7").style.display = "none";
 });
@@ -1631,10 +1654,6 @@ document.getElementById("homeBtn8").addEventListener("click", () => {
     resetRoom8();
     document.getElementById("room8").classList.add("hidden");
     document.querySelector(".mobile-screen").classList.remove("hidden");
-});
-
-document.getElementById("settingBtn8").addEventListener("click", () => {
-    document.getElementById("settingsRoom8").style.display = "flex";
 });
 
 document.getElementById("closeSettingsRoom8").addEventListener("click", () => {
@@ -1849,7 +1868,7 @@ finalLockArea9.addEventListener("drop", (e) => {
             overlay9.style.left = '0px';
             finalCloseBtn9.classList.remove("hidden");
             lastoptions9.style.display = 'block';
-        }, 1200);
+        }, 100);
     }
 });
 
@@ -1857,10 +1876,6 @@ document.getElementById("homeBtn9").addEventListener("click", () => {
     resetRoom9();
     document.getElementById("room9").classList.add("hidden");
     document.querySelector(".mobile-screen").classList.remove("hidden");
-});
-
-document.getElementById("settingBtn9").addEventListener("click", () => {
-    document.getElementById("settingsRoom9").style.display = "flex";
 });
 
 document.getElementById("closeSettingsRoom9").addEventListener("click", () => {
@@ -2031,10 +2046,6 @@ document.getElementById("homeBtn10").addEventListener("click", () => {
     document.querySelector(".mobile-screen").classList.remove("hidden");
 });
 
-document.getElementById("settingBtn10").addEventListener("click", () => {
-    document.getElementById("settingsRoom10").style.display = "flex";
-});
-
 document.getElementById("closeSettingsRoom10").addEventListener("click", () => {
     document.getElementById("settingsRoom10").style.display = "none";
 });
@@ -2057,7 +2068,7 @@ document.getElementById("nextBtn10").addEventListener("click", () => {
     document.querySelector(".level11").classList.remove("locked");
     resetRoom10();
     document.getElementById("room10").classList.add("hidden");
-    document.querySelector(".mobile-screen").classList.remove("hidden");
+    mobileScreen2.classList.remove("hidden");
 });
 
 if (document.getElementById("closebtn10_2")) {
@@ -2078,3 +2089,796 @@ function resetRoom10() {
     firstSelectedSlot10 = null;
     setupBoxColors10();
 }
+
+// Room 11 Game Logic
+const handle11 = document.querySelector("#room11 #handle");
+const popup11 = document.querySelector("#room11 #popup");
+const popup11_2 = document.querySelector("#room11 #popup2");
+const popupImg11 = document.querySelector("#room11 #popup-img");
+const arrows11 = document.querySelectorAll("#room11 .arrow-btn");
+const doorContainer11 = document.querySelector("#room11 .door-container");
+const openDoor11 = document.querySelector("#room11 #open-door");
+const finalPanel11 = document.getElementById("finalPanel11");
+const lastoptions11 = document.getElementById("lastoptions11");
+const panelCloseBtn11 = document.getElementById("panelCloseBtn11");
+
+const KEY_POSITIONS = [{id:0,top:230,left:230},{id:1,top:230,left:265},{id:2,top:230,left:316},{id:3,top:160,left:290},{id:4,top:130,left:315},{id:5,top:180,left:360},{id:6,top:90,left:270},{id:7,top:280,left:300},{id:8,top:230,left:358},{id:9,top:280,left:354},{id:10,top:320,left:320},{id:11,top:363,left:270},{id:12,top:367,left:347},{id:13,top:410,left:290},{id:14,top:410,left:230},{id:15,top:410,left:160},{id:16,top:355,left:110},{id:17,top:355,left:160},{id:18,top:359,left:220},{id:19,top:317,left:220},{id:20,top:317,left:257},{id:21,top:320,left:130},{id:22,top:304,left:180},{id:23,top:270,left:146},{id:24,top:230,left:135},{id:25,top:180,left:150},{id:26,top:140,left:210},{id:27,top:90,left:210},{id:28,top:120,left:140},{id:29,top:99,left:88},{id:30,top:160,left:40},{id:31,top:228,left:40},{id:32,top:297,left:40}];
+const VALID_PATHS = [[0,1,2,3,4,5],[0,1,2,3,4,6],[0,1,2,3],[0,1,2,7,3,8],[0,1,2,8,9,10,11],[0,1,2,8,9,10,12,13,14,15,16,21,17,18,19,20,22,23,24,25,26,27,28,29,30,31,32],[0,1,2,8,9,10,12,13,14,15,16,21,17,18,19,20,22,23,24,25,26,27,28,29,30,31],[3,8],[3,4,6],[3,2],[2,7,3,8],[2,8,9,10,11],[2,8,9,10,12,13],[2,8,9,10,12,13,14,15,16,21,17,18,19,20,22,23,24,25,26,27,28,29,30,31],[2,8,9,10,12,13,14,15,16,21,17,18,19,20,22,23,24,25,26,27,28,29,30,31],[0,1],[1,2],[2,3],[3,4],[4,5],[4,6],[7,3],[2,8],[8,9],[9,10],[10,11],[10,12],[12,13],[13,14,15,16,21,17,18,19,20,22,23,24,25,26,27,28,29,30,31,32],[13,14,15,16,21,17,18,19,20,22,23,24,25,26,27,28,29,30,31],[2,7],[19,20,22,23,24,25,26,27,28,29,30,31,32],[19,22],[19,20],[22,23],[23,24,25,26,27,28,29,30,31,32],[24,25],[25,26],[26,27],[27,28],[28,29],[29,30],[30,31],[31,32]];
+
+let currentID11 = 0;
+let visitedPath11 = [0];
+
+function getValidNextMoves11(path) {
+    const validNext = new Set();
+    const currentPos = path[path.length - 1];
+    VALID_PATHS.forEach(validPath => {
+        if (validPath.length <= path.length) return;
+        let matches = true;
+        for (let i = 0; i < path.length; i++) {
+            if (validPath[i] !== path[i]) { matches = false; break; }
+        }
+        if (matches) validNext.add(validPath[path.length]);
+    });
+    VALID_PATHS.forEach(validPath => {
+        if (validPath[0] === currentPos && validPath.length > 1) validNext.add(validPath[1]);
+    });
+    if (path.length > 1) validNext.add(path[path.length - 2]);
+    return Array.from(validNext);
+}
+
+function showKey11(id) {
+    KEY_POSITIONS.forEach(k => {
+        const el = document.querySelector(`#room11 #key${k.id}`);
+        if (el) el.style.display = k.id === id ? 'block' : 'none';
+    });
+}
+
+function moveKey11(dir) {
+    if (currentID11 === 31 && dir === "left") {
+        popup11_2.style.display = "none";
+        doorContainer11.style.display = "none";
+        openDoor11.style.display = "block";
+        setTimeout(() => {
+            finalPanel11.style.display = "block";
+            lastoptions11.style.display = "flex";
+            panelCloseBtn11.style.display = "block";
+        }, 2000);
+        return;
+    }
+    const currentPos = KEY_POSITIONS[currentID11];
+    const validNext = getValidNextMoves11(visitedPath11);
+    const prevPos = visitedPath11.length > 1 ? visitedPath11[visitedPath11.length - 2] : -1;
+    const candidates = validNext.map(nextID => {
+        const pos = KEY_POSITIONS[nextID];
+        const dx = pos.left - currentPos.left;
+        const dy = pos.top - currentPos.top;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        const isBacktrack = nextID === prevPos;
+        let score = 0;
+        if (dir === "right" && dx > 0) score = dx * 2 - Math.abs(dy);
+        else if (dir === "left" && dx < 0) score = Math.abs(dx) * 2 - Math.abs(dy);
+        else if (dir === "up" && dy < 0) score = Math.abs(dy) * 2 - Math.abs(dx);
+        else if (dir === "down" && dy > 0) score = dy * 2 - Math.abs(dx);
+        return { id: nextID, score, distance, isBacktrack };
+    }).filter(c => c.score > 0);
+    if (candidates.length === 0) return;
+    candidates.sort((a, b) => {
+        if (a.isBacktrack !== b.isBacktrack) return b.isBacktrack - a.isBacktrack;
+        if (b.score !== a.score) return b.score - a.score;
+        return a.distance - b.distance;
+    });
+    const bestID = candidates[0].id;
+    if (visitedPath11.length > 1 && visitedPath11[visitedPath11.length - 2] === bestID) {
+        visitedPath11.pop();
+        currentID11 = bestID;
+    } else {
+        currentID11 = bestID;
+        visitedPath11.push(currentID11);
+    }
+    showKey11(currentID11);
+}
+
+if (handle11) {
+    handle11.addEventListener("click", () => { popup11.style.display = "flex"; });
+}
+if (popupImg11) {
+    popupImg11.addEventListener("click", (e) => {
+        e.stopPropagation();
+        popup11.style.display = "none";
+        popup11_2.style.display = "flex";
+        currentID11 = 0;
+        visitedPath11 = [0];
+        showKey11(0);
+    });
+}
+if (popup11) {
+    popup11.addEventListener("click", (e) => { if (e.target !== popupImg11) popup11.style.display = "none"; });
+}
+if (popup11_2) {
+    popup11_2.addEventListener("click", (e) => { if (e.target === popup11_2) popup11_2.style.display = "none"; });
+}
+arrows11.forEach(arrow => {
+    arrow.addEventListener("click", (e) => {
+        e.stopPropagation();
+        moveKey11(arrow.dataset.dir);
+    });
+});
+
+document.addEventListener("keydown", (e) => {
+    if (popup11_2 && popup11_2.style.display === "flex") {
+        if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+            e.preventDefault();
+            if (e.key === "ArrowUp") moveKey11("up");
+            if (e.key === "ArrowDown") moveKey11("down");
+            if (e.key === "ArrowLeft") moveKey11("left");
+            if (e.key === "ArrowRight") moveKey11("right");
+        }
+    }
+});
+
+document.getElementById("homeBtn11").addEventListener("click", () => {
+    resetRoom11();
+    document.getElementById("room11").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+document.getElementById("nextBtn11").addEventListener("click", () => {
+    unlockedLevel = 12;
+    localStorage.setItem('unlockedLevel', unlockedLevel);
+    document.querySelector(".level12").classList.remove("locked");
+    resetRoom11();
+    document.getElementById("room11").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+if (panelCloseBtn11) {
+    panelCloseBtn11.addEventListener("click", () => { resetRoom11(); });
+}
+
+function resetRoom11() {
+    if (doorContainer11) doorContainer11.style.display = "block";
+    if (openDoor11) openDoor11.style.display = "none";
+    if (popup11) popup11.style.display = "none";
+    if (popup11_2) popup11_2.style.display = "none";
+    if (finalPanel11) finalPanel11.style.display = "none";
+    if (lastoptions11) lastoptions11.style.display = "none";
+    if (panelCloseBtn11) panelCloseBtn11.style.display = "none";
+    currentID11 = 0;
+    visitedPath11 = [0];
+    KEY_POSITIONS.forEach(k => {
+        const el = document.querySelector(`#room11 #key${k.id}`);
+        if (el) el.style.display = 'none';
+    });
+}
+
+// Room 12 Game Logic
+let isKnobRevealed12 = false;
+let mazeGameActive12 = false;
+let moveKeys12 = { Up: false, Down: false, Left: false, Right: false };
+let player12 = { x: 0, y: 0, hitbox: 6, visual: 30, speed: 2 };
+
+const bgImage12 = document.getElementById("bgImage12");
+const doorKnobImg12 = document.getElementById("doorKnobImg12");
+const doorKnobHitbox12 = document.getElementById("doorKnobHitbox12");
+const doorDropZone12 = document.getElementById("doorArea12");
+const slot12 = document.getElementById("slot12");
+const closeBtn12 = document.getElementById("closeButton12");
+const levelPanel12 = document.getElementById("levelCompletePanel12");
+const mazeOverlay12 = document.getElementById('mazeOverlay12');
+const mazeCanvas12 = document.getElementById('mazeCanvas12');
+const ctx12 = mazeCanvas12.getContext('2d', { willReadFrequently: true });
+
+const mazeImg12 = new Image();
+mazeImg12.src = "room12/images/room12/puzzle.png";
+const keyImg12 = new Image();
+keyImg12.src = "room12/images/room12/key to open the door for room 1.png";
+
+function handleKnobInteraction12() {
+    if (!isKnobRevealed12) {
+        doorKnobImg12.classList.remove("hidden");
+        closeBtn12.classList.remove("hidden");
+        setTimeout(() => {
+            doorKnobImg12.classList.add("moved");
+            doorKnobHitbox12.classList.add("moved");
+            bgImage12.classList.add("blur-bg");
+        }, 50);
+        isKnobRevealed12 = true;
+    } else {
+        closeBtn12.classList.add("hidden");
+        startMazeGame12();
+    }
+}
+
+doorKnobHitbox12.addEventListener("click", handleKnobInteraction12);
+doorKnobImg12.addEventListener("click", handleKnobInteraction12);
+
+closeBtn12.addEventListener("click", (e) => {
+    e.stopPropagation();
+    doorKnobImg12.classList.add("hidden");
+    closeBtn12.classList.add("hidden");
+    bgImage12.classList.remove("blur-bg");
+    doorKnobImg12.classList.remove("moved");
+    doorKnobHitbox12.classList.remove("moved");
+    isKnobRevealed12 = false;
+});
+
+function startMazeGame12() {
+    mazeOverlay12.classList.remove("hidden");
+    mazeGameActive12 = true;
+    mazeCanvas12.width = 300;
+    mazeCanvas12.height = 300;
+    player12.x = 150;
+    player12.y = 125;
+    requestAnimationFrame(updateMaze12);
+}
+
+function updateMaze12() {
+    if (!mazeGameActive12) return;
+    ctx12.clearRect(0, 0, mazeCanvas12.width, mazeCanvas12.height);
+    ctx12.drawImage(mazeImg12, 0, 0, mazeCanvas12.width, mazeCanvas12.height);
+    let nextX = player12.x;
+    let nextY = player12.y;
+    if (moveKeys12.Up) nextY -= player12.speed;
+    if (moveKeys12.Down) nextY += player12.speed;
+    if (moveKeys12.Left) nextX -= player12.speed;
+    if (moveKeys12.Right) nextX += player12.speed;
+    if (!checkCollision12(nextX, nextY)) {
+        player12.x = nextX;
+        player12.y = nextY;
+    }
+    let drawX = player12.x - (player12.visual / 2) + (player12.hitbox / 2);
+    let drawY = player12.y - (player12.visual / 2) + (player12.hitbox / 2);
+    ctx12.drawImage(keyImg12, drawX, drawY, player12.visual, player12.visual);
+    checkWin12();
+    requestAnimationFrame(updateMaze12);
+}
+
+function checkCollision12(x, y) {
+    const points = [
+        {x: x, y: y},
+        {x: x + player12.hitbox, y: y},
+        {x: x, y: y + player12.hitbox},
+        {x: x + player12.hitbox, y: y + player12.hitbox}
+    ];
+    for (let point of points) {
+        if (point.x < 0 || point.x >= mazeCanvas12.width || point.y < 0 || point.y >= mazeCanvas12.height) continue;
+        const pixel = ctx12.getImageData(point.x, point.y, 1, 1).data;
+        if (pixel[2] < 100 && pixel[0] > 100 && pixel[1] > 100) return true;
+    }
+    return false;
+}
+
+function checkWin12() {
+    if (player12.x <= 5 || player12.x >= mazeCanvas12.width - 5 || player12.y <= 5 || player12.y >= mazeCanvas12.height - 5) {
+        endMazeGame12();
+    }
+}
+
+function endMazeGame12() {
+    mazeGameActive12 = false;
+    mazeOverlay12.classList.add("hidden");
+    bgImage12.classList.remove("blur-bg");
+    doorKnobImg12.classList.add("hidden");
+    doorKnobHitbox12.style.display = "none";
+    addKeyToInventory12();
+}
+
+function addKeyToInventory12() {
+    const invKey = document.createElement("img");
+    invKey.src = keyImg12.src;
+    invKey.draggable = true;
+    invKey.id = "inventoryKey12";
+    invKey.style.width = "40px";
+    invKey.style.height = "40px";
+    slot12.appendChild(invKey);
+    invKey.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", e.target.id);
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setDragImage(e.target, 20, 20);
+    });
+    doorDropZone12.classList.remove("disabled");
+}
+
+doorDropZone12.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = "move";
+});
+
+doorDropZone12.addEventListener("drop", (e) => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData("text/plain");
+    const item = document.getElementById(id);
+    if (item && item.id === "inventoryKey12") {
+        item.remove();
+        doorKnobImg12.classList.add("hidden");
+        doorKnobHitbox12.style.display = "none";
+        bgImage12.src = "room12/images/room12/2 bg.png";
+        setTimeout(() => {
+            levelPanel12.classList.remove("hidden");
+            bgImage12.classList.add("blur-bg");
+        }, 1000);
+    }
+});
+
+window.addEventListener("keydown", (e) => {
+    if (mazeGameActive12) {
+        if (e.key === "ArrowUp") moveKeys12.Up = true;
+        if (e.key === "ArrowDown") moveKeys12.Down = true;
+        if (e.key === "ArrowLeft") moveKeys12.Left = true;
+        if (e.key === "ArrowRight") moveKeys12.Right = true;
+    }
+});
+
+window.addEventListener("keyup", (e) => {
+    if (mazeGameActive12) {
+        if (e.key === "ArrowUp") moveKeys12.Up = false;
+        if (e.key === "ArrowDown") moveKeys12.Down = false;
+        if (e.key === "ArrowLeft") moveKeys12.Left = false;
+        if (e.key === "ArrowRight") moveKeys12.Right = false;
+    }
+});
+
+const setupBtn12 = (id, dir) => {
+    const btn = document.getElementById(id);
+    if (!btn) return;
+    const start = (e) => { e.preventDefault(); moveKeys12[dir] = true; };
+    const end = (e) => { e.preventDefault(); moveKeys12[dir] = false; };
+    btn.addEventListener("mousedown", start);
+    btn.addEventListener("mouseup", end);
+    btn.addEventListener("touchstart", start);
+    btn.addEventListener("touchend", end);
+};
+
+setupBtn12("btnUp12", "Up");
+setupBtn12("btnDown12", "Down");
+setupBtn12("btnLeft12", "Left");
+setupBtn12("btnRight12", "Right");
+
+document.getElementById("homeBtn12").addEventListener("click", () => {
+    resetRoom12();
+    document.getElementById("room12").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+document.getElementById("nextBtn12").addEventListener("click", () => {
+    unlockedLevel = 13;
+    localStorage.setItem('unlockedLevel', unlockedLevel);
+    document.querySelector(".level13").classList.remove("locked");
+    resetRoom12();
+    document.getElementById("room12").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+function resetRoom12() {
+    bgImage12.src = "room12/images/room12/1 bg.png";
+    bgImage12.classList.remove("blur-bg");
+    doorKnobImg12.classList.add("hidden");
+    doorKnobImg12.classList.remove("moved");
+    doorKnobHitbox12.classList.remove("moved");
+    doorKnobHitbox12.style.display = "block";
+    closeBtn12.classList.add("hidden");
+    mazeOverlay12.classList.add("hidden");
+    levelPanel12.classList.add("hidden");
+    slot12.innerHTML = "";
+    doorDropZone12.classList.add("disabled");
+    isKnobRevealed12 = false;
+    mazeGameActive12 = false;
+    moveKeys12 = { Up: false, Down: false, Left: false, Right: false };
+    player12 = { x: 0, y: 0, hitbox: 6, visual: 30, speed: 2 };
+}
+
+// Room 13 Game Logic
+const clueArea13 = document.getElementById("clueArea13");
+const overlay13 = document.getElementById("overlay13");
+const sceneImage13 = document.getElementById("sceneImage13");
+const closeBtn13 = document.getElementById("closeBtn13");
+const boxArea13 = document.getElementById("boxArea13");
+const lockArea13 = document.getElementById("lockArea13");
+const keyArea13 = document.getElementById("keyArea13");
+const finalLockArea13 = document.getElementById("finalLockArea13");
+const keypadWrapper13 = document.getElementById("keypadWrapper13");
+const lastoptions13 = document.getElementById("lastoptions13");
+const finalCloseBtn13 = document.getElementById("finalCloseBtn13");
+const slot13 = document.getElementById("slot13");
+const correctCode13 = "41";
+let isBoxOpen13 = false;
+let enteredCode13 = "";
+let keyCollected13 = false;
+
+for (let i = 0; i <= 9; i++) {
+    const btn = document.createElement("img");
+    btn.src = `room 13/digital lock croped/${i}@3x.png`;
+    btn.className = "num-btn";
+    btn.dataset.val = i;
+    document.getElementById("buttonGrid13").appendChild(btn);
+}
+const wBtn = document.createElement("img");
+wBtn.src = "room 13/digital lock croped/w@3x.png";
+wBtn.className = "num-btn";
+wBtn.dataset.val = "w";
+document.getElementById("buttonGrid13").insertBefore(wBtn, document.getElementById("buttonGrid13").children[9]);
+const eBtn = document.createElement("img");
+eBtn.src = "room 13/digital lock croped/e@3x.png";
+eBtn.className = "num-btn";
+eBtn.dataset.val = "e";
+document.getElementById("buttonGrid13").appendChild(eBtn);
+
+clueArea13.addEventListener("click", () => {
+    overlay13.src = "room 13/clue paper@3x.png";
+    overlay13.style.left = "10px";
+    overlay13.style.top = "20px";
+    overlay13.style.width = "95%";
+    overlay13.style.height = "95%";
+    sceneImage13.classList.add("blur");
+    overlay13.classList.remove("hidden");
+    closeBtn13.classList.remove("hidden");
+    clueArea13.classList.add("disabled");
+});
+
+closeBtn13.addEventListener("click", () => {
+    sceneImage13.classList.remove("blur");
+    overlay13.classList.add("hidden");
+    closeBtn13.classList.add("hidden");
+    clueArea13.classList.remove("disabled");
+    lockArea13.classList.add("disabled");
+    boxArea13.classList.remove("disabled");
+    overlay13.src = "room 13/lock@3x.png";
+    keypadWrapper13.style.display = "none";
+    isBoxOpen13 = false;
+    resetKeypad13();
+    keyArea13.classList.add("disabled");
+});
+
+boxArea13.addEventListener("click", () => {
+    overlay13.src = "room 13/box@3x.png";
+    overlay13.style.left = "10px";
+    overlay13.style.top = "20px";
+    overlay13.style.width = "95%";
+    overlay13.style.height = "95%";
+    sceneImage13.classList.add("blur");
+    overlay13.classList.remove("hidden");
+    closeBtn13.classList.remove("hidden");
+    clueArea13.classList.add("disabled");
+    lockArea13.classList.remove("disabled");
+    boxArea13.classList.add("disabled");
+});
+
+lockArea13.addEventListener("click", () => {
+    if (!isBoxOpen13 && !keyCollected13) {
+        overlay13.src = "room 13/lock@3x.png";
+        overlay13.style.left = "40px";
+        overlay13.style.top = "100px";
+        overlay13.style.width = "75%";
+        overlay13.style.height = "70%";
+        setTimeout(() => {
+            keypadWrapper13.style.display = "block";
+        }, 500);
+        isBoxOpen13 = true;
+    }
+});
+
+document.getElementById("buttonGrid13").addEventListener("pointerdown", (e) => {
+    if (!isBoxOpen13 || !e.target.classList.contains("num-btn")) return;
+    e.preventDefault();
+    const val = e.target.dataset.val;
+    const clickedPath = `room 13/digital lock croped/when we clcik/${val}@3x.png`;
+    e.target.src = clickedPath;
+    if (val !== "w" && val !== "e") {
+        enteredCode13 += val;
+        checkCode13();
+    } else {
+        resetKeypad13();
+    }
+});
+
+function checkCode13() {
+    if (enteredCode13 === correctCode13) {
+        setTimeout(() => {
+            overlay13.src = "room 13/box@3x 2@3x.png";
+            lockArea13.classList.add("disabled");
+            keypadWrapper13.style.display = "none";
+            keyArea13.classList.remove("disabled");
+        }, 50);
+    } else if (enteredCode13.length >= 2) {
+        setTimeout(() => {
+            resetKeypad13();
+        }, 300);
+    }
+}
+
+function resetKeypad13() {
+    enteredCode13 = "";
+    document.querySelectorAll("#buttonGrid13 .num-btn").forEach(btn => {
+        const val = btn.dataset.val;
+        btn.src = `room 13/digital lock croped/${val}@3x.png`;
+    });
+}
+
+keyArea13.addEventListener("click", () => {
+    overlay13.src = "room 13/box@3x 2@3x 3@3x.png";
+    const inventoryKey = document.createElement("img");
+    inventoryKey.src = "room 13/key@3x.png";
+    inventoryKey.style.width = "50px";
+    inventoryKey.draggable = true;
+    slot13.appendChild(inventoryKey);
+    keyCollected13 = true;
+    sceneImage13.src = "room 13/2bg@3x@3x.png";
+    keyArea13.classList.add("disabled");
+    finalLockArea13.classList.remove("disabled");
+    slot13.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", "finalKey");
+    });
+});
+
+finalLockArea13.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+finalLockArea13.addEventListener("drop", (e) => {
+    e.preventDefault();
+    const item = e.dataTransfer.getData("text/plain");
+    if (item === "finalKey") {
+        sceneImage13.src = "room 13/3bg@3x@3x@3x.png";
+        slot13.style.display = "none";
+        finalLockArea13.classList.add("disabled");
+        setTimeout(() => {
+            sceneImage13.classList.add("blur");
+            overlay13.src = "room 13/final panel 7- 15/final panel 13@2x.png";
+            overlay13.classList.remove("hidden");
+            lastoptions13.style.display = "block";
+            finalCloseBtn13.classList.remove("hidden");
+            overlay13.style.height = "100%";
+            overlay13.style.width = "100%";
+            overlay13.style.top = "0px";
+            overlay13.style.left = "0px";
+        }, 1200);
+    }
+});
+
+document.getElementById("homeBtn13").addEventListener("click", () => {
+    resetRoom13();
+    document.getElementById("room13").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+document.getElementById("nextBtn13").addEventListener("click", () => {
+    unlockedLevel = 14;
+    localStorage.setItem("unlockedLevel", unlockedLevel);
+    document.querySelector(".level14").classList.remove("locked");
+    resetRoom13();
+    document.getElementById("room13").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+if (finalCloseBtn13) {
+    finalCloseBtn13.addEventListener("click", () => { resetRoom13(); });
+}
+
+function resetRoom13() {
+    sceneImage13.src = "room 13/1bg@3x.png";
+    sceneImage13.classList.remove("blur");
+    overlay13.classList.add("hidden");
+    overlay13.src = "room 13/clue paper@3x.png";
+    closeBtn13.classList.add("hidden");
+    finalCloseBtn13.classList.add("hidden");
+    clueArea13.classList.remove("disabled");
+    boxArea13.classList.remove("disabled");
+    lockArea13.classList.add("disabled");
+    keyArea13.classList.add("disabled");
+    finalLockArea13.classList.add("disabled");
+    keypadWrapper13.style.display = "none";
+    lastoptions13.style.display = "none";
+    slot13.innerHTML = "";
+    slot13.style.display = "block";
+    isBoxOpen13 = false;
+    enteredCode13 = "";
+    keyCollected13 = false;
+    resetKeypad13();
+}
+
+// Room 14 Game Logic
+const clueArea14 = document.getElementById("clueArea14");
+const overlay14 = document.getElementById("overlay14");
+const sceneImage14 = document.getElementById("sceneImage14");
+const closeBtn14 = document.getElementById("closeBtn14");
+const letterArea14 = document.getElementById("letterArea14");
+const letterOpenArea14 = document.getElementById("letterOpenArea14");
+const clickArea14 = document.getElementById("clickArea14");
+const colorButtons14 = document.getElementById("colorButtons14");
+const redBtn14 = document.getElementById("redBtn14");
+const whiteBtn14 = document.getElementById("whiteBtn14");
+const yellowBtn14 = document.getElementById("yellowBtn14");
+const keyArea14 = document.getElementById("keyArea14");
+const slot14 = document.getElementById("slot14");
+const finalLockArea14 = document.getElementById("finalLockArea14");
+const lastoptions14 = document.getElementById("lastoptions14");
+const finalCloseBtn14 = document.getElementById("finalCloseBtn14");
+
+// Preload Room 14 images
+if (sceneImage14) {
+    const preloadImages14 = ["room 14/2 bg@3x@3x.png", "room 14/3 bg@3x@3x@3x.png", "room 14/letter 14@3x.png", "room 14/letter open 14@3x@3x.png", "room 14/rip box 1@3x.png", "room 14/rip box 2@3x@3x.png", "room 14/rip box 3@3x@3x@3x.png"];
+    preloadImages14.forEach(src => { const img = new Image(); img.src = src; });
+}
+
+let isLetterOpen14 = false;
+let isRipBoxOpen14 = false;
+let redBtnState14 = 0;
+let whiteBtnState14 = 0;
+let yellowBtnState14 = 0;
+let keyCollected14 = false;
+
+clueArea14.addEventListener("click", () => {
+    overlay14.src = isLetterOpen14 ? "room 14/letter open 14@3x@3x.png" : "room 14/letter box 14@3x.png";
+    overlay14.style.left = "10px";
+    overlay14.style.top = "20px";
+    overlay14.style.width = "95%";
+    overlay14.style.height = "95%";
+    sceneImage14.classList.add("blur");
+    overlay14.classList.remove("hidden");
+    closeBtn14.classList.remove("hidden");
+    clueArea14.classList.add("disabled");
+    letterArea14.classList.remove("disabled");
+});
+
+closeBtn14.addEventListener("click", () => {
+    sceneImage14.classList.remove("blur");
+    overlay14.classList.add("hidden");
+    closeBtn14.classList.add("hidden");
+    clueArea14.classList.remove("disabled");
+    letterArea14.classList.add("disabled");
+    colorButtons14.style.display = 'none';
+});
+
+letterArea14.addEventListener("click", () => {
+    overlay14.src = "room 14/letter 14@3x.png";
+    clueArea14.classList.add("disabled");
+    letterArea14.classList.add("disabled");
+    letterOpenArea14.classList.remove("disabled");
+});
+
+letterOpenArea14.addEventListener("click", () => {
+    isLetterOpen14 = true;
+    overlay14.src = "room 14/letter open 14@3x@3x.png";
+    letterOpenArea14.classList.add("disabled");
+    colorButtons14.style.top = "40.5%";
+});
+
+clickArea14.addEventListener("click", () => {
+    if (!isRipBoxOpen14) {
+        sceneImage14.classList.add("blur");
+        overlay14.classList.remove("hidden");
+        letterOpenArea14.classList.add("disabled");
+        overlay14.src = "room 14/rip box 1@3x.png";
+        closeBtn14.classList.remove("hidden");
+        colorButtons14.style.display = 'flex';
+    } else {
+        sceneImage14.classList.add("blur");
+        overlay14.classList.remove("hidden");
+        overlay14.src = "room 14/rip box 3@3x@3x@3x.png";
+        closeBtn14.classList.remove("hidden");
+        colorButtons14.style.display = 'none';
+    }
+});
+
+redBtn14.addEventListener('click', () => {
+    redBtnState14++;
+    if (redBtnState14 > 2) redBtnState14 = 0;
+    if (redBtnState14 === 0) redBtn14.src = "room 14/red button.png";
+    else if (redBtnState14 === 1) redBtn14.src = "room 14/yellow.png";
+    else if (redBtnState14 === 2) redBtn14.src = "room 14/white button.png";
+    checkColorPuzzle14();
+});
+
+whiteBtn14.addEventListener('click', () => {
+    whiteBtnState14++;
+    if (whiteBtnState14 > 2) whiteBtnState14 = 0;
+    if (whiteBtnState14 === 0) whiteBtn14.src = "room 14/white button.png";
+    else if (whiteBtnState14 === 1) whiteBtn14.src = "room 14/red button.png";
+    else if (whiteBtnState14 === 2) whiteBtn14.src = "room 14/yellow.png";
+    checkColorPuzzle14();
+});
+
+yellowBtn14.addEventListener('click', () => {
+    yellowBtnState14++;
+    if (yellowBtnState14 > 2) yellowBtnState14 = 0;
+    if (yellowBtnState14 === 0) yellowBtn14.src = "room 14/yellow.png";
+    else if (yellowBtnState14 === 1) yellowBtn14.src = "room 14/red button.png";
+    else if (yellowBtnState14 === 2) yellowBtn14.src = "room 14/white button.png";
+    checkColorPuzzle14();
+});
+
+function checkColorPuzzle14() {
+    if (redBtnState14 === 2 && yellowBtnState14 === 0 && whiteBtnState14 === 1) {
+        overlay14.src = "room 14/rip box 2@3x@3x.png";
+        colorButtons14.style.display = 'none';
+        keyArea14.classList.remove("disabled");
+    }
+}
+
+keyArea14.addEventListener("click", () => {
+    overlay14.src = "room 14/rip box 3@3x@3x@3x.png";
+    isRipBoxOpen14 = true;
+    const inventoryKey = document.createElement("img");
+    inventoryKey.src = "room 14/key copy 3.png";
+    inventoryKey.style.width = "30px";
+    inventoryKey.draggable = true;
+    slot14.appendChild(inventoryKey);
+    keyCollected14 = true;
+    sceneImage14.src = "room 14/2 bg@3x@3x.png";
+    keyArea14.classList.add("disabled");
+    finalLockArea14.classList.remove("disabled");
+    slot14.addEventListener("dragstart", (e) => {
+        e.dataTransfer.setData("text/plain", "finalKey");
+    });
+});
+
+finalLockArea14.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+finalLockArea14.addEventListener("drop", (e) => {
+    e.preventDefault();
+    const item = e.dataTransfer.getData("text/plain");
+    if (item === "finalKey") {
+        sceneImage14.src = "room 14/3 bg@3x@3x@3x.png";
+        slot14.style.display = "none";
+        finalLockArea14.classList.add("disabled");
+        clickArea14.classList.add("disabled");
+        setTimeout(() => {
+            sceneImage14.classList.add("blur");
+            overlay14.src = "room 14/final panel 7- 15/final panel 14@2x.png";
+            overlay14.classList.remove("hidden");
+            lastoptions14.style.display = 'block';
+            finalCloseBtn14.classList.remove("hidden");
+        }, 1200);
+    }
+});
+
+document.getElementById("homeBtn14").addEventListener("click", () => {
+    resetRoom14();
+    document.getElementById("room14").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+document.getElementById("nextBtn14").addEventListener("click", () => {
+    unlockedLevel = 15;
+    localStorage.setItem('unlockedLevel', unlockedLevel);
+    document.querySelector(".level15").classList.remove("locked");
+    resetRoom14();
+    document.getElementById("room14").classList.add("hidden");
+    mobileScreen2.classList.remove("hidden");
+});
+
+if (finalCloseBtn14) {
+    finalCloseBtn14.addEventListener("click", () => { resetRoom14(); });
+}
+
+function resetRoom14() {
+    sceneImage14.src = "room 14/1 bg@3x.png";
+    sceneImage14.classList.remove("blur");
+    overlay14.classList.add("hidden");
+    overlay14.src = "room 14/letter box 14@3x.png";
+    closeBtn14.classList.add("hidden");
+    finalCloseBtn14.classList.add("hidden");
+    clueArea14.classList.remove("disabled");
+    letterArea14.classList.add("disabled");
+    letterOpenArea14.classList.add("disabled");
+    clickArea14.classList.remove("disabled");
+    colorButtons14.style.display = 'none';
+    keyArea14.classList.add("disabled");
+    finalLockArea14.classList.add("disabled");
+    lastoptions14.style.display = 'none';
+    slot14.innerHTML = "";
+    slot14.style.display = "block";
+    isLetterOpen14 = false;
+    isRipBoxOpen14 = false;
+    redBtnState14 = 0;
+    whiteBtnState14 = 0;
+    yellowBtnState14 = 0;
+    keyCollected14 = false;
+    redBtn14.src = "room 14/red button.png";
+    whiteBtn14.src = "room 14/white button.png";
+    yellowBtn14.src = "room 14/yellow.png";
+}
+
+

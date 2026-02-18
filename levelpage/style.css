@@ -156,9 +156,4 @@
   .level-wrapper {
     position: absolute;
     z-index: 10;
-  }
-  
-  .locked {
-    opacity: 0.5;
-    pointer-events: none;
   } 

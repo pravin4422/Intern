@@ -234,26 +234,29 @@ function checkColorPuzzle() {
     // Example: If the first button is White, the puzzle is solved
     if (redBtnState === 2  && yellowBtnState === 1 && whiteBtnState === 2 ) { 
         console.log("Puzzle Solved!");
+        
+        // Disable button clicks immediately
+        redBtn.style.pointerEvents = 'none';
+        whiteBtn.style.pointerEvents = 'none';
+        yellowBtn.style.pointerEvents = 'none';
+        
         setTimeout(()=> {
             openDoorBg.classList.add('show-door');
-        },100);
-       
-
-        const hitboxes = [hitbox1, hitbox2, hitbox3, hitbox4, hitbox5];
-        hitboxes.forEach(box => {
-            box.style.pointerEvents = 'none'; 
-        });
-        mainBg.style.filter = "none";
-        colorButtons.style.display = 'none';
-        closebtn.style.display = 'none';
-        setTimeout(() => {
-            finalPanel.style.display = 'block';
-            lastoptions.style.display='flex';
-            console.log("Success Panel Displayed");
-        }, 500); // 0.5 second delay so they see the door open first
-
-
-        
+            
+            const hitboxes = [hitbox1, hitbox2, hitbox3, hitbox4, hitbox5];
+            hitboxes.forEach(box => {
+                box.style.pointerEvents = 'none'; 
+            });
+            mainBg.style.filter = "none";
+            colorButtons.style.display = 'none';
+            closebtn.style.display = 'none';
+            
+            setTimeout(() => {
+                finalPanel.style.display = 'block';
+                lastoptions.style.display='flex';
+                console.log("Success Panel Displayed");
+            }, 500);
+        }, 10000);
     }
 }
 

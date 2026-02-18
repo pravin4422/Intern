@@ -1,3 +1,7 @@
+// Preload the final panel image
+const finalPanelImg = new Image();
+finalPanelImg.src = "final panel 7- 15/final panel 9@2x@2x.png";
+
 const clueArea = document.getElementById("clueArea");
 const overlay = document.getElementById("overlay");
 const sceneImage = document.getElementById("sceneImage");
