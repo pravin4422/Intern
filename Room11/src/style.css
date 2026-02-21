@@ -19,6 +19,7 @@ body {
 /* Door Container */
 .door-container {
     position: relative;
+    overflow: hidden;
 }
 
 /* Open Door Container */
@@ -50,6 +51,40 @@ body {
 
 .handle-hotspot:active {
     opacity: 0.6;
+}
+
+/* Game Inventory */
+.game-inventory {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 420px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.inventory-slot {
+    position: absolute;
+    bottom: 50px;
+    left: 15%;
+    transform: translateX(-50%);
+    width: 55px;
+    height: 55px;
+    z-index: 20;
+    pointer-events: auto;
+}
+
+.inventory-key {
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+    display: none;
+}
+
+.inventory-key.dragging {
+    cursor: grabbing;
+    opacity: 0.8;
 }
 
 /* Popup Styles */

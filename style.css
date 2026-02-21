@@ -1336,15 +1336,19 @@ body{
 .closebtn10_2:active { transform: translate(-50%, -50%) scale(0.9); }
 
 /* Room 11 Game Styles */
-#room11 .door-container { position: relative; }
+#room11 .door-container { position: relative; overflow: hidden; }
 #room11 .open-door-container { position: relative; }
-#room11 .door { width: 400px; display: block; pointer-events: none; user-select: none; }
-#room11 .handle-hotspot { position: absolute; width: 65px; height: 47px; top: 308px; left: 155px; cursor: pointer; z-index: 10; transition: opacity 0.2s; }
+#room11 .door { width: 370px; display: block; pointer-events: none; user-select: none; }
+#room11 .handle-hotspot { position: absolute; width: 65px; height: 47px; top: 270px; left: 135px; cursor: pointer; z-index: 10; transition: opacity 0.2s; }
 #room11 .handle-hotspot:hover { opacity: 0.8; }
 #room11 .handle-hotspot:active { opacity: 0.6; }
-#room11 .popup { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); justify-content: center; align-items: center; z-index: 100; overflow: auto; backdrop-filter: blur(10px); }
+#room11 .game-inventory { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 360px; pointer-events: none; user-select: none; }
+#room11 .inventory-slot { position: absolute; bottom: 40px; left: 15%; transform: translateX(-50%); width: 55px; height: 55px; z-index: 20; pointer-events: auto; }
+#room11 .inventory-key { width: 80%; cursor: grab; display: none; }
+#room11 .inventory-key.dragging { cursor: grabbing; opacity: 0.8; }
+#room11 .popup { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center; z-index: 100; overflow: auto; backdrop-filter: blur(10px); }
 #room11 .popup.show { display: flex; }
-#room11 .zoom-container { background: transparent; padding: 0; border-radius: 0; box-shadow: none; animation: fadeInScale 0.3s ease-out; }
+#room11 .zoom-container { background: transparent; padding: 30px; border-radius: 15px; animation: fadeInScale 0.3s ease-out; }
 @keyframes fadeInScale { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 #room11 #popup-img { width: 200px; cursor: pointer; display: block; user-select: none; transition: transform 0.2s; }
 #room11 #popup-img:hover { transform: scale(1.05); }
@@ -1365,15 +1369,17 @@ body{
 #room11 .arrow-btn:disabled:hover { transform: none; }
 #room11 .position-indicator { position: absolute; bottom: -210px; left: 50%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.8); color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; display: none; }
 #room11 #current-position { color: #667eea; font-weight: 700; }
-.final-panel11 { position: absolute; top: 50%; left: 60%; transform: translate(-50%, -50%); width: 400px; z-index: 100; display: none; }
-#lastoptions11 { position: absolute; top: 59%; left: 60%; transform: translateX(-50%); display: flex; gap: 20px; z-index: 101; width: 250px; justify-content: center; }
-#lastoptions11 img { width: 70px; height: 70px; cursor: pointer; transition: transform 0.1s; }
+.final-panel11 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; z-index: 100; display: none; }
+#lastoptions11 { position: absolute; top: 59%; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; z-index: 1001; width: 250px; justify-content: center; }
+#lastoptions11 img { width: 60px; height: 60px; cursor: pointer; transition: transform 0.1s; }
 #lastoptions11 img:active { transform: scale(0.9); }
-.panel-close-btn11 { position: absolute; top: 10%; left: 87%; width: 50px; height: 50px; cursor: pointer; z-index: 1002; transition: transform 0.2s; display: none; }
-.panel-close-btn11:active { transform: scale(0.9); }
+#room11 .panel-close-btn11 { position: absolute; top: 10%; right: 20px; width: 50px; height: 50px; cursor: pointer; z-index: 102; display: none; transition: transform 0.2s; }
+#room11 .panel-close-btn11:active { transform: scale(0.9); }
 
 /* Room 12 Game Styles */
+#room12 { background: #222; }
 #room12 .bg-image { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; }
+#room12 .blur-bg { filter: blur(4px); transition: filter 0.8s ease; }
 #room12 .door-knob { position: absolute; bottom: 188px; left: 34%; width: 52%; transform: translateX(-50%); transition: transform 0.6s ease; z-index: 100; cursor: pointer; }
 #room12 .door-knob.moved { transform: translateX(-15%); }
 #room12 .door-knob-hitbox { position: absolute; bottom: 294px; left: 36%; width: 41px; height: 76px; transform: translateX(-50%); z-index: 200; cursor: pointer; transition: transform 0.6s ease; }

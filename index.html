@@ -582,6 +582,10 @@
         <div class="door-container">
             <img src="Room11/image/bg 1.png" class="door" alt="Door">
             <div class="handle-hotspot" id="handle" role="button" aria-label="Click door handle"></div>
+            <img src="Room11/image/game inventry@3x.png" class="game-inventory" alt="Game Inventory">
+            <div class="inventory-slot" id="slot11">
+                <img src="Room11/image/keys.png" class="inventory-key" id="inventoryKey" alt="Key" draggable="true">
+            </div>
         </div>
         <div class="open-door-container" id="open-door" style="display: none;">
             <img src="Room11/image/bg 2.png" class="door" alt="Open Door">
@@ -659,17 +663,24 @@
     <!-- Room 12 Game -->
     <div class="game-screen hidden" id="room12">
         <img src="room12/images/room12/1 bg.png" class="bg-image" id="bgImage12"/>
+
         <img src="room12/images/room12/lo.png" class="door-knob hidden" id="doorKnobImg12"/>
+
         <div class="door-knob-hitbox" id="doorKnobHitbox12"></div>
+
         <div id="doorArea12" class="door-drop-zone disabled"></div>
+
         <img src="room12/images/room12/ICONS/CLOSE@3x.png" id="closeButton12" class="close-btn hidden" />
+
         <div class="inventory">
             <img src="room12/images/room12/game inventry@3x.png" class="inventory-bg" />
             <div class="slot" id="slot12"></div>
         </div>
+
         <div id="mazeOverlay12" class="maze-overlay hidden">
             <div class="maze-container">
                 <canvas id="mazeCanvas12"></canvas>
+
                 <div class="controls">
                     <div class="row">
                         <img src="room12/images/room12/Artboard 1@3x 45 Degree up.png" id="btnUp12" class="arrow-btn" />
@@ -683,6 +694,7 @@
                 <p class="instructions">Guide the Key out of the Maze!</p>
             </div>
         </div>
+
         <div id="levelCompletePanel12" class="level-complete-container hidden">
             <img src="room12/images/room12/final panel 12@2x.png" class="panel-bg" />
             <div class="panel-buttons">

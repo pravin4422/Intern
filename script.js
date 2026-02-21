@@ -174,7 +174,7 @@ window.addEventListener('popstate', (e) => {
     resetRoom10();
     resetRoom11();
     resetRoom12();
-    resetRoom14();
+    resetRoom13();
     document.getElementById("room1").classList.add("hidden");
     document.getElementById("room2").classList.add("hidden");
     document.getElementById("room3").classList.add("hidden");
@@ -187,7 +187,7 @@ window.addEventListener('popstate', (e) => {
     document.getElementById("room10").classList.add("hidden");
     document.getElementById("room11").classList.add("hidden");
     document.getElementById("room12").classList.add("hidden");
-    document.getElementById("room14").classList.add("hidden");
+    document.getElementById("room13").classList.add("hidden");
     mobileScreen.classList.add("hidden");
     mobileScreen2.classList.add("hidden");
     homepageScreen.classList.add("hidden");
@@ -2107,6 +2107,8 @@ const VALID_PATHS = [[0,1,2,3,4,5],[0,1,2,3,4,6],[0,1,2,3],[0,1,2,7,3,8],[0,1,2,
 
 let currentID11 = 0;
 let visitedPath11 = [0];
+let handleClicked11 = false;
+let keyUsed11 = false;
 
 function getValidNextMoves11(path) {
     const validNext = new Set();
@@ -2136,13 +2138,8 @@ function showKey11(id) {
 function moveKey11(dir) {
     if (currentID11 === 31 && dir === "left") {
         popup11_2.style.display = "none";
-        doorContainer11.style.display = "none";
-        openDoor11.style.display = "block";
-        setTimeout(() => {
-            finalPanel11.style.display = "block";
-            lastoptions11.style.display = "flex";
-            panelCloseBtn11.style.display = "block";
-        }, 2000);
+        doorContainer11.style.display = "block";
+        document.getElementById('inventoryKey').style.display = "block";
         return;
     }
     const currentPos = KEY_POSITIONS[currentID11];
@@ -2179,7 +2176,12 @@ function moveKey11(dir) {
 }
 
 if (handle11) {
-    handle11.addEventListener("click", () => { popup11.style.display = "flex"; });
+    handle11.addEventListener("click", () => {
+        if (!handleClicked11 && !keyUsed11) {
+            handleClicked11 = true;
+            popup11.style.display = "flex";
+        }
+    });
 }
 if (popupImg11) {
     popupImg11.addEventListener("click", (e) => {
@@ -2216,6 +2218,55 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+// Drag and drop key to handle (Room 11)
+const inventoryKey11 = document.getElementById('inventoryKey');
+const slot11 = document.getElementById('slot11');
+
+console.log('Room 11 - inventoryKey11:', inventoryKey11);
+console.log('Room 11 - handle11:', handle11);
+
+if (inventoryKey11) {
+    inventoryKey11.setAttribute('draggable', 'true');
+    console.log('Room 11 - Key draggable set to true');
+    
+    inventoryKey11.addEventListener('dragstart', (e) => {
+        console.log('Room 11 - Drag started');
+        e.dataTransfer.setData('text/plain', 'inventoryKey');
+        inventoryKey11.classList.add('dragging');
+    });
+
+    inventoryKey11.addEventListener('dragend', () => {
+        console.log('Room 11 - Drag ended');
+        inventoryKey11.classList.remove('dragging');
+    });
+}
+
+if (handle11) {
+    handle11.addEventListener('dragover', (e) => {
+        console.log('Room 11 - Drag over handle');
+        e.preventDefault();
+    });
+
+    handle11.addEventListener('drop', (e) => {
+        console.log('Room 11 - Drop event triggered');
+        e.preventDefault();
+        const item = e.dataTransfer.getData('text/plain');
+        console.log('Room 11 - Dropped item:', item, 'keyUsed11:', keyUsed11);
+        if (item === 'inventoryKey' && !keyUsed11) {
+            console.log('Room 11 - Opening door!');
+            keyUsed11 = true;
+            doorContainer11.style.display = 'none';
+            openDoor11.style.display = 'block';
+            
+            setTimeout(() => {
+                finalPanel11.style.display = 'block';
+                lastoptions11.style.display = 'flex';
+                panelCloseBtn11.style.display = 'block';
+            }, 1000);
+        }
+    });
+}
+
 document.getElementById("homeBtn11").addEventListener("click", () => {
     resetRoom11();
     document.getElementById("room11").classList.add("hidden");
@@ -2243,8 +2294,12 @@ function resetRoom11() {
     if (finalPanel11) finalPanel11.style.display = "none";
     if (lastoptions11) lastoptions11.style.display = "none";
     if (panelCloseBtn11) panelCloseBtn11.style.display = "none";
+    const invKey = document.getElementById('inventoryKey');
+    if (invKey) invKey.style.display = 'none';
     currentID11 = 0;
     visitedPath11 = [0];
+    handleClicked11 = false;
+    keyUsed11 = false;
     KEY_POSITIONS.forEach(k => {
         const el = document.querySelector(`#room11 #key${k.id}`);
         if (el) el.style.display = 'none';
@@ -2255,7 +2310,13 @@ function resetRoom11() {
 let isKnobRevealed12 = false;
 let mazeGameActive12 = false;
 let moveKeys12 = { Up: false, Down: false, Left: false, Right: false };
-let player12 = { x: 0, y: 0, hitbox: 6, visual: 30, speed: 2 };
+
+let player12 = {
+    x: 0, y: 0,
+    hitbox: 6,
+    visual: 30,
+    speed: 2
+};
 
 const bgImage12 = document.getElementById("bgImage12");
 const doorKnobImg12 = document.getElementById("doorKnobImg12");
@@ -2270,6 +2331,7 @@ const ctx12 = mazeCanvas12.getContext('2d', { willReadFrequently: true });
 
 const mazeImg12 = new Image();
 mazeImg12.src = "room12/images/room12/puzzle.png";
+
 const keyImg12 = new Image();
 keyImg12.src = "room12/images/room12/key to open the door for room 1.png";
 
@@ -2343,13 +2405,16 @@ function checkCollision12(x, y) {
     for (let point of points) {
         if (point.x < 0 || point.x >= mazeCanvas12.width || point.y < 0 || point.y >= mazeCanvas12.height) continue;
         const pixel = ctx12.getImageData(point.x, point.y, 1, 1).data;
-        if (pixel[2] < 100 && pixel[0] > 100 && pixel[1] > 100) return true;
+        if (pixel[2] < 100 && pixel[0] > 100 && pixel[1] > 100) {
+            return true;
+        }
     }
     return false;
 }
 
 function checkWin12() {
-    if (player12.x <= 5 || player12.x >= mazeCanvas12.width - 5 || player12.y <= 5 || player12.y >= mazeCanvas12.height - 5) {
+    if (player12.x <= 5 || player12.x >= mazeCanvas12.width - 5 ||
+        player12.y <= 5 || player12.y >= mazeCanvas12.height - 5) {
         endMazeGame12();
     }
 }
@@ -2457,14 +2522,15 @@ function resetRoom12() {
     doorKnobHitbox12.classList.remove("moved");
     doorKnobHitbox12.style.display = "block";
     closeBtn12.classList.add("hidden");
-    mazeOverlay12.classList.add("hidden");
     levelPanel12.classList.add("hidden");
+    mazeOverlay12.classList.add("hidden");
     slot12.innerHTML = "";
     doorDropZone12.classList.add("disabled");
     isKnobRevealed12 = false;
     mazeGameActive12 = false;
     moveKeys12 = { Up: false, Down: false, Left: false, Right: false };
-    player12 = { x: 0, y: 0, hitbox: 6, visual: 30, speed: 2 };
+    player12.x = 150;
+    player12.y = 125;
 }
 
 // Room 13 Game Logic
@@ -2880,5 +2946,7 @@ function resetRoom14() {
     whiteBtn14.src = "room 14/white button.png";
     yellowBtn14.src = "room 14/yellow.png";
 }
+
+
 
 

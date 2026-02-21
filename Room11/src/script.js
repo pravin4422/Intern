@@ -121,7 +121,9 @@ function getValidNextMoves(path) {
 
 let currentID = 0;
 let visitedPath = [0];
-let validPath = null; // Track if current path is valid
+let validPath = null;
+let keyUsed = false;
+let handleClicked = false;
 
 function isValidPath() {
   return VALID_PATHS.some(validPath => {
@@ -152,15 +154,8 @@ function moveKey(dir) {
   // Check if at position 31 and left arrow is pressed
   if (currentID === 31 && dir === "left") {
     popup2.style.display = "none";
-    document.querySelector('.door-container').style.display = "none";
-    document.getElementById('open-door').style.display = "block";
-    
-    // Show level complete panel after 3 seconds
-    setTimeout(() => {
-      document.getElementById('finalPanel11').style.display = "block";
-      document.getElementById('lastoptions11').style.display = "flex";
-      document.getElementById('panelCloseBtn11').style.display = "block";
-    }, 3000);
+    document.querySelector('.door-container').style.display = "block";
+    document.getElementById('inventoryKey').style.display = "block";
     return;
   }
   
@@ -208,7 +203,10 @@ function moveKey(dir) {
 }
 
 handle.addEventListener("click", () => {
-  popup.style.display = "flex";
+  if (!handleClicked && !keyUsed) {
+    handleClicked = true;
+    popup.style.display = "flex";
+  }
 });
 
 popupImg.addEventListener("click", (e) => {
@@ -250,3 +248,46 @@ document.addEventListener("keydown", (e) => {
     }
   }
 });
+
+// Drag and drop key to handle
+const inventoryKey = document.getElementById('inventoryKey');
+const slot11 = document.getElementById('slot11');
+
+if (inventoryKey) {
+  inventoryKey.setAttribute('draggable', 'true');
+  
+  inventoryKey.addEventListener('dragstart', (e) => {
+    console.log('Drag started');
+    e.dataTransfer.setData('text/plain', 'doorKey');
+    inventoryKey.classList.add('dragging');
+  });
+
+  inventoryKey.addEventListener('dragend', () => {
+    console.log('Drag ended');
+    inventoryKey.classList.remove('dragging');
+  });
+}
+
+if (handle) {
+  handle.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  });
+
+  handle.addEventListener('drop', (e) => {
+    e.preventDefault();
+    console.log('Dropped on handle');
+    const item = e.dataTransfer.getData('text/plain');
+    if (item === 'doorKey' && !keyUsed) {
+      console.log('Key used, opening door');
+      keyUsed = true;
+      document.querySelector('.door-container').style.display = 'none';
+      document.getElementById('open-door').style.display = 'block';
+      
+      setTimeout(() => {
+        document.getElementById('finalPanel11').style.display = 'block';
+        document.getElementById('lastoptions11').style.display = 'flex';
+        document.getElementById('panelCloseBtn11').style.display = 'block';
+      }, 1000);
+    }
+  });
+}
